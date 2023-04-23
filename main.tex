@@ -1,0 +1,157 @@
+% required packages
+\documentclass[MTech]{iitmdiss}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{times}
+\usepackage{t1enc}
+\usepackage{float}
+\usepackage{amsmath, amssymb}
+\usepackage{mathrsfs}
+\usepackage[autostyle]{csquotes}
+\usepackage{longtable}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{threeparttable}
+\usepackage{textcomp}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{gensymb}
+\usepackage{lipsum}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{wrapfig}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{amsmath} % easier math formulae, align, subequations \ldots
+\usepackage{makecell}
+\usepackage{hhline}
+\usepackage{cellspace}
+\usepackage{enumitem}
+\usepackage{mwe}
+\usepackage{hyperref}
+\hypersetup{
+    citecolor=blue,
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue
+    }
+\usepackage{indentfirst} % for indenting the start of the paragraph
+\usepackage{natbib} % for bibliography
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{svg}
+
+\usepackage{subcaption}
+
+\usepackage{adjustbox}
+\usepackage{ltablex} 
+
+\usepackage{color}
+\usepackage{framed}
+% \usepackage{afterpage}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{geometry} % Page settings\usepackage{capt-of}
+\usepackage{bm}
+\usepackage{verbatim}
+
+%%%%%%%%%% to remove chapter {no} %%%%%%%%%%%%
+\usepackage{titlesec}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+% \titleformat{\chapter}{}{}{0em}{\bf\Huge}   
+% \titlespacing*{\chapter}{}{-40pt}{40pt}
+
+%%%%%%%%%%%%%%% to remove the space between the table of contents items
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\hspace*{\fill}\Large\bfseries}
+\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+\renewcommand{\cftlottitlefont}{\hspace*{\fill}\Large\bfseries}
+\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
+\renewcommand{\cftloftitlefont}{\hspace*{\fill}\Large\bfseries}
+\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
+
+% for todolist needs to remove after finishing thesis
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+
+
+% \usepackage{etoolbox}
+% \makeatletter
+% \patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{}
+% \patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% document begin %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{itemize}
+  \item To Do list :
+
+  \begin{todolist}
+    \item [\done] Background and Motivation
+    \item Abstract
+    \item Literature review
+    \item Numerical Solution
+    \item Green function
+    \item forces and motions
+    \item drift forces
+    \item something
+    \item something
+  \end{todolist}
+
+\end{itemize}
+
+\newpage
+\input{chapters/title_page}
+
+\newpage
+% \pagenumbering{arabic}
+\input{chapters/certificate}
+
+\newpage
+\tableofcontents
+
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{LIST OF TABLES}
+
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+
+\newpage
+\input{chapters/abstract}
+
+\newpage
+\input{chapters/introduction}
+
+\newpage
+\input{chapters//mathematical_model}
+
+\newpage
+\input{chapters/numerical_solutions}
+
+\newpage
+\input{chapters/drift_forces}
+
+\newpage
+\input{chapters/results}
+
+\newpage
+\input{chapters/conclusion}
+
+\newpage
+\bibliography{reference}
+\printbibliography
+
+\end{document}
