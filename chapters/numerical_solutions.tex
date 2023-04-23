@@ -98,15 +98,95 @@ Now, substituting eq.(\ref{eq:green_eq}) in the equations (\ref{eq:alpha}) and (
     \alpha_{ij} = -\iint_{\Delta S_i} \frac{\partial}{\partial n}\left(\frac{1}{r}\right) dS - \frac{1}{2\pi}\iint_{\Delta S_j} \frac{\partial}{\partial n}\left(\frac{1}{r'}\right) dS
     - \frac{1}{2\pi}\iint_{\Delta S_i} \frac{\partial G}{\partial n}(x_i, x_j, \omega_e) dS
 \end{equation}
-Here, $j^{th}$ panel is the source panel and $i_th$ panel represents the feild point where potential is supposed to be calculated.
-
 \begin{equation}
-    \beta_{ij} = -\frac{1}{4\pi}\iint_{\Delta S_i}
+    \beta_{ij} = -\frac{1}{4\pi}\iint_{\Delta S_i}\left(\frac{1}{r}\right) dS - \frac{1}{4\pi}\iint_{\Delta S_i}\left(\frac{1}{r'}dS\right)-\frac{1}{r}\iint_{\Delta S_i} \Tilde{G}(x_i, x_j, \omega_e)dS
 \end{equation}
+Here, $j^{th}$ panel is the source panel and $i_th$ panel represents the feild point where potential is supposed to be calculated. In the above expressions, first two terms are frequency independant and the last term is frequency dependent which can be obtained by solving for the wavy green function.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Frequency independent part of Green function}
+The frequency independant part of the $\alpha$ matrix can be computed analytically using the expressions provided by \cite{hess1964calculation}. Similarly, the frequency independant terms of $\beta$ matrix can be evaluated using the expressions given by \cite{katz2001low}. Expressions used to get all the frequency independant terms as mentioned below.
+
+Now, normal derivatives can be expressed as the sum of dot products of normal unit vectors and the partial derivatives in $x$, $y$ and $z$ directions. Hence, 
+\begin{align}
+    \iint_{\Delta S_i} \frac{\partial}{\partial n}\left(\frac{1}{r}\right) dS &= n_x \iint_{\Delta S_m} \frac{\partial}{\partial n}\left(\frac{1}{r}\right) dS + n_y \iint_{\Delta S_i} \frac{\partial}{\partial n}\left(\frac{1}{r}\right) dS
+    \\ &+ n_z \iint_{\Delta S_i}\frac{\partial}{\partial n}\left(\frac{1}{r}\right) dS
+    \label{eq:alpha_panel_comp}
+\end{align}
+Now, equations for the partial derivatives required to compute the normal derivative are given below :
+\begin{align}
+    \begin{split}
+        \label{eq:partial_r_x}
+        \iint_{\Delta S_m} \frac{\partial}{\partial x}\left(\frac{1}{r}\right) dS &=\frac{y_{2}-y_{1}}{d_{12}} \ln \left(\frac{r_{1}+r_{2}-d_{12}}{r_{1}+r_{2}+d_{12}}\right)\\ 
+        &+ \frac{y_{3}-y_{2}}{d_{23}} \ln \left(\frac{r_{2}+r_{3}-d_{23}}{r_{2}+r_{3}+d_{23}}\right)\\ &+\frac{y_{4}-y_{3}}{d_{34}} \ln \left(\frac{r_{3}+r_{4}-d_{34}}{r_{3}+r_{4}+d_{34}}\right)\\
+        &+\frac{y_{1}-y_{4}}{d_{41}} \ln \left(\frac{r_{4}+r_{1}-d_{41}}{r_{4}+r_{1}+d_{41}}\right)
+    \end{split}
+\end{align}
+
+\begin{align}
+    \begin{split}
+        \label{eq:partial_r_y}
+        \iint_{\Delta S_m} \frac{\partial}{\partial y}\left(\frac{1}{r}\right) d S
+        &= \frac{x_{1}-x_{2}}{d_{12}} \ln \left(\frac{r_{1}+r_{2}-d_{12}}{r_{1}+r_{2}+d_{12}}\right)\\ &+\frac{x_{2}-x_{3}}{d_{23}} \ln \left(\frac{r_{2}+r_{3}-d_{23}}{r_{2}+r_{3}+d_{23}}\right) \\
+        &+\frac{x_{3}-x_{4}}{d_{34}} \ln \left(\frac{r_{3}+r_{4}-d_{34}}{r_{3}+r_{4}+d_{34}}\right)\\ &+\frac{x_{4}-x_{1}}{d_{41}} \ln \left(\frac{r_{4}+r_{1}-d_{41}}{r_{4}+r_{1}+d_{41}}\right)
+    \end{split}
+\end{align}
+
+\begin{align}
+    \begin{split}
+        \label{eq:partial_r_z}
+        \iint_{\Delta S_m} \frac{\partial}{\partial z}\left(\frac{1}{r}\right) dS 
+        &=\tan ^{-1}\left(\frac{m_{12} e_{1}-h_{1}}{z r_{1}}\right)-\tan ^{-1}\left(\frac{m_{12} e_{2}-h_{2}}{z r_{2}}\right) \\
+        &+\tan ^{-1}\left(\frac{m_{23} e_{2}-h_{2}}{z r_{2}}\right)-\tan ^{-1}\left(\frac{m_{23} e_{3}-h_{3}}{z r_{3}}\right) \\
+        &+\tan ^{-1}\left(\frac{m_{34} e_{3}-h_{3}}{z r_{3}}\right)-\tan ^{-1}\left(\frac{m_{34} e_{4}-h_{4}}{z r_{4}}\right) \\
+        &+\tan ^{-1}\left(\frac{m_{41} e_{4}-h_{4}}{z r_{4}}\right)-\tan ^{-1}\left(\frac{m_{41} e_{4}-h_{1}}{z r_{1}}\right)
+    \end{split}
+\end{align}
+
+Similarly, the frequency dependent part of the $[\beta]$ matrix is given by
+\begin{align}
+    \begin{split}
+        \label{eq:frq_indi_beta}
+       \iint_{\Delta S_m}{\left(\frac{1}{r}\right)} dS &= \left[\frac{(x-x_1)(y_2-y_1) - (y-y_1)(x_2-x_1)}{d_{12}}\ln\left(\frac{r_1+r_2+d_{12}}{r_1+r_2-d_{12}}\right)\right. \\
+&+ \left.\frac{(x-x_2)(y_3-y_2)-(y-y_2)(x_3-x_2)}{d_{23}}\ln\left(\frac{r_2+r_3+d_{23}}{r_2+r_3-d_{23}}\right)\right. \\
+&+ \left.\frac{(x-x_3)(y_4-y_3) -(y-y_4)(x_4-x_3)}{d_{34}}\ln\left(\frac{r_3+r_4+d_{34}}{r_3+r_4-d_{34}}\right)\right. \\
+&+ \left.\frac{(x-x_4)(y_1-y_4) -(y-y_4)(x_1-x_4)}{d_{41}}\ln\left(\frac{r_4+r_1+d_{41}}{r_4+r_1-d_{41}}\right)\right] \\
+&- z\left[\tan^{-1}\left(\frac{m_{12}e_1-h_1}{zr_1}\right)-\tan^{-1}\left(\frac{m_{12}e_2-h_2}{zr_2}\right)\right. \\
+&+ \left.\tan^{-1}\left(\frac{m_{23}e_2-h_2}{zr_2}\right)-\tan^{-1}\left(\frac{m_{23}e_3-h_3}{zr_3}\right)\right.\\
+&+ \left.\tan^{-1}\left(\frac{m_{34}e_3-h_3}{zr_3}\right)-\tan^{-1}\left(\frac{m_{34}e_4-h_4}{zr_4}\right)\right.\\
+&+ \left.\tan^{-1}\left(\frac{m_{41}e_4-h_4}{zr_4}\right)-\tan^{-1}\left(\frac{m_{41}e_1-h_1}{zr_1}\right)\right] 
+    \end{split}
+\end{align}
+In the above expression, instead of $|z|$ as reported in \cite{katz2001low}, only $z$ is used. This modifies expression is found 
+to be in good agree with the point source approximation as the distance between the field panel and source panel increases.
+
+In the above expressions (\ref{eq:partial_r_x}), (\ref{eq:partial_r_y}), (\ref{eq:partial_r_z}) and (\ref{eq:frq_indi_beta}) the intermediate terms are given by the below equations:
+\begin{align}
+    d_{12} &= \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}\\
+    d_{23} &= \sqrt{(x_3-x_2)^2+(y_3-y_2)^2}\\
+    d_{34} &= \sqrt{(x_4-x_3)^2+(y_4-y_3)^2}\\
+    d_{41} &= \sqrt{(x_1-x_4)^2+(y_1-y_4)^2}
+\end{align}
+
+\begin{align}
+    m_{12} &=\frac{y_2-y_1}{x_2-x_1} \\
+    m_{23} &=\frac{y_3-y_2}{x_3-x_2} \\
+    m_{34} &=\frac{y_4-y_3}{x_4-x_3} \\
+    m_{41} &=\frac{y_1-y_4}{x_1-x_4}
+\end{align}
+
+\begin{align}
+    r_1 &= \sqrt{(x-x_1)^2+(y-y_1)^2+z^2}\\
+    r_2 &= \sqrt{(x-x_2)^2+(y-y_2)^2+z^2}\\
+    r_3 &= \sqrt{(x-x_3)^2+(y-y_3)^2+z^2}\\
+    r_4 &= \sqrt{(x-x_4)^2+(y-y_4)^2+z^2}
+\end{align}
+
+\begin{align}
+    e_1 &= z^2+(x-x_1)^2\\
+    e_2 &= z^2+(x-x_2)^2\\
+    e_3 &= z^2+(x-x_3)^2\\
+    e_4 &= z^2+(x-x_4)^2
+\end{align}
 
 \subsection{Frequency dependent part of Green function}
-\section{Wave Potentials}
-\section{Exciting forces}
-\section{Forward speed RAO}
