@@ -32,15 +32,17 @@ $\frac{\partial G}{\partial n}$ denotes the derivative of the Green function in 
 \end{equation}
 
 \section{Numerical Discretization}
-For $i^{th}$ panel eq.(\ref{eq:integral_eq}) can be written as:
+To solve the eq. (\ref{eq:integral_eq}), the body surface is discretized into $M$ panels of area 
+$\Delta S_m$ where $m = (1, 2, \cdots, M)$. Every entity presented here is computed at the centroid of the panel.
+Hence, the source strength as well is computed over each panels centroid. Now, for $i^{th}$ panel eq.(\ref{eq:integral_eq}) can be written as:
 \begin{equation}
     \label{eq:dis_integral_eq}
     -\frac{1}{2}\sigma_i(\vec{x_s}) + \frac{1}{4\pi}\int_S\sigma_i(\vec{x_s})\frac{\partial G_i(\vec{x}:\vec{x_s})}{\partial n} = v_{n_i} \quad \text{on}\; S
 \end{equation}
 Here, the subscript $i$ in the equation represents the entities of an individual panel.
-While, calculating influence on a panel because of other source panel, the panel where the potential is being calculated and the source panel becomes the same. Due to this, frequency independant part of the green function tends to infinity. This case is known as singularity. To compensate for that influence, $-\frac{1}{2}\sigma$ is added into the equation according to the residual theory.
+While, calculating influence on a panel because of other source panel, the panel where the potential is being calculated and the source panel becomes the same. Due to this, frequency independant part of the green function tends to go to infinity. This case is known as singularity. To compensate for that influence, $-\frac{1}{2}\sigma$ is added into the equation according to the residual theory.
 
-Eq. \ref{eq:dis_integral_eq} can be rearranged an written as:
+Eq. ()\ref{eq:dis_integral_eq}) can be rearranged an written as:
 \begin{equation}
     \label{eq:alpha_int_eq}
     -\frac{1}{2}\sigma_i + \frac{1}{2}\sum_{i=1, j=1, i\ne j}^{M}\alpha_{ij}\sigma_i = v_{n_i} \quad \text{for} i = 1, 2, \cdots M
@@ -168,12 +170,34 @@ In the above expressions (\ref{eq:partial_r_x}), (\ref{eq:partial_r_y}), (\ref{e
     d_{41} &= \sqrt{(x_1-x_4)^2+(y_1-y_4)^2}
 \end{align}
 
-\begin{align}
-    m_{12} &=\frac{y_2-y_1}{x_2-x_1} \\
-    m_{23} &=\frac{y_3-y_2}{x_3-x_2} \\
-    m_{34} &=\frac{y_4-y_3}{x_4-x_3} \\
-    m_{41} &=\frac{y_1-y_4}{x_1-x_4}
-\end{align}
+\noindent\begin{minipage}{.5\linewidth}
+    \begin{equation}
+        m_{12} =\frac{y_2-y_1}{x_2-x_1}
+    \end{equation}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+    \begin{equation}
+        m_{23} =\frac{y_3-y_2}{x_3-x_2}
+    \end{equation}
+\end{minipage}
+
+\noindent\begin{minipage}{.5\linewidth}
+    \begin{equation}
+        m_{34} =\frac{y_4-y_3}{x_4-x_3}
+    \end{equation}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+    \begin{equation}
+        m_{41} =\frac{y_1-y_4}{x_1-x_4}
+    \end{equation}
+\end{minipage}
+
+% \begin{align}
+%     m_{12} &=\frac{y_2-y_1}{x_2-x_1} \\
+%     m_{23} &=\frac{y_3-y_2}{x_3-x_2} \\
+%     m_{34} &=\frac{y_4-y_3}{x_4-x_3} \\
+%     m_{41} &=\frac{y_1-y_4}{x_1-x_4}
+% \end{align}
 
 \begin{align}
     r_1 &= \sqrt{(x-x_1)^2+(y-y_1)^2+z^2}\\
@@ -190,3 +214,35 @@ In the above expressions (\ref{eq:partial_r_x}), (\ref{eq:partial_r_y}), (\ref{e
 \end{align}
 
 \subsection{Frequency dependent part of Green function}
+The frequency dependent part of the integrals of the green function which is $\Tilde{G}(x, x_s, \omega_e)$ and its derivatives are 
+evaluated using the numerical methods given in \cite{telste1986numerical}. The given expressions for derivatives and integrals are shown below : 
+\begin{align}
+    \tilde{G}(\boldsymbol{x},\boldsymbol{x_s}, \omega_e) &= 2f\left[ R_0(h,v) - i \pi J_0(h)e^{v}\right]\\
+    \frac{\partial{\tilde{G}_0}}{\partial{\rho_G}} &= -2f^{2}\left[R_1(h,v)-i\pi J_{1}(h)e^v\right]\\
+    \frac{\partial{\tilde{G}_0}}{\partial{x}} &=\frac{(x^e_P-x^e_Q)}{\rho_G}\frac{\partial{\tilde{G}_0}}{\partial{\rho_G}}\\
+    \frac{\partial \tilde{G}_{0}}{\partial y} &= \frac{\left(y^e_P-y^e_Q\right)}{\rho_G} \frac{\partial \tilde{G}_{0}}{\partial \rho_G}\\
+    \frac{\partial \tilde{G}_{0}}{\partial z} &= 2 f^{2}\left[\frac{1}{d}+R_{0}(h, v)-i \pi J_{0}(h) e^{v}\right]
+\end{align}
+
+where, 
+\begin{align}
+    f &= \frac{\omega^2 L}{g} \\
+    \rho_G &= \left[(x^e_P-x^e_Q)^2 + (y^e_P-y^e_Q)^2\right]^{\frac{1}{2}}
+\end{align}
+\begin{align}
+    r &= \left[\rho^2_G+(z^e_P-z^e_Q)^2\right]^{\frac{1}{2}} \\
+    {r}^{\prime}&= \left[\rho^2_G+(z^e_P+z^e_Q)^2\right]^{\frac{1}{2}} \\
+    h &= f\rho_G \\
+    v &= f(z^e_P+z^e_Q) \\
+    d &= f {r}^{\prime}
+\end{align}
+
+$J_0$ and $J_1$ are the first-kind Bessel functions, $L$ is a non-dimensionalizing length selected by the user, 
+and $g$ is the acceleration brought on by gravity. This study makes use of $L=1$. Real valued functions $R_0(h,v)$ 
+and $R_1(h,v)$ are effectively evaluated using the numerical method suggested by \cite{telste1986numerical}.
+
+Once, the potentials are computed ,pressure can be obtained on each panel. 
+Through integration of pressure throughout the submerged surface forces can be evaluated. 
+Using radiation potentials added mass and radiation damping can be computed. 
+After, obtaining all these coeffecients and using them motion equation can be solved to get the RAOs.
+Steps to compute these forces and motion are explained in detail in the next section.
