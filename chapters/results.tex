@@ -4,13 +4,37 @@ MDLHydroD software is explained in \cite{guha2013development} and \cite{guha2015
 For comparison KCS and KVLCC2 vessels are considered. 
 
 \section{KCS Vessel}
-explaination about the input. something something something explaination about the input. something something something
-explaination about the input. something something somethingexplaination about the input. something something something
-explaination about the input. something something somethingexplaination about the input. something something something
-explaination about the input. something something somethingexplaination about the input. something something something
+KCS is a fine form container ship and its particulars are listed in Table \ref{tab:kvlcc2_inp}. For comparison, frequencies are used from
+$-0.03$ with $+0.03$ increment, in totoal $34$ frequencies are used. Ship's speed is $8\,\si{m.s^{-1}}$. Incident angles used 
+ranges from $0^{\circ}$ to $345^{\circ}$ with $15^{\circ}$ increment. Simulation is ran for 6 modes of motion.  
+The comparison of added mass for different angles are shown in figure \ref{fig:kcs_addedmass_1} and figure \ref{fig:kcs_addedmass_2}.
+Comparisons of radiation damping is shown in figure 2. Comparisons of Froude Krylov force is shown in figure 2.
+Comparisons of Scattering force is shown in figure 2. Comparisons of RAO is shown in figure 2.
+
+\begin{table}[tbp]
+    \caption[Table]{KCS principal particulars\label{tab:kcs_particulars}}
+    \centering{%
+    \setlength{\tabcolsep}{10pt} % Default value: 6pt
+    \renewcommand{\arraystretch}{1.3} % Default value: 1
+    \begin{tabular}{|c|c|}
+    \hline
+    {\bf Main Particulars} & {\bf Value}\\
+    \hline
+     Length between perpendiculars $L ~(m)$ & 230 \\ 
+     Breadth $B ~(m)$ & 32.2  \\
+     Draft $d ~(m)$ & 10.8  \\
+     Displacement $\nabla ~(m^{3})$ & 52030  \\
+     Block coefficient $C_{b}$ & 0.651   \\
+     Radius of Gyration $R_{zz}/L$ & 0.25 \\
+     Metacentric height $GM ~(m)$ & 1.20 \\
+     LCB (\% of $L$ from midship, forward +ve) & -1.48\% \\
+    \hline
+    \end{tabular}
+    }
+\end{table}
 
 \subsection{Added Mass}
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/added_mass/A11_BETA_0.png}
@@ -20,12 +44,7 @@ explaination about the input. something something somethingexplaination about th
         \includegraphics[width=\textwidth]{plots/kcs/added_mass/A11_BETA_15.png}
         \caption{$A_{22} \, \beta = 15^{\circ}$}
     \end{subfigure}
-    \caption{KCS vessel added mass comparison - I}
-    \label{fig:kcs_addedmass_1}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \ContinuedFloat
+    \vspace{5pt}%
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/added_mass/A12_BETA_90.png}
         \caption{$A_{11}\, \beta=0^{\circ}$}
@@ -34,6 +53,7 @@ explaination about the input. something something somethingexplaination about th
         \includegraphics[width=\textwidth]{plots/kcs/added_mass/A13_ BETA_45.png}
         \caption{$A_{22} \, \beta = 11^{\circ}$}
     \end{subfigure}
+    \vspace{5pt}%
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/added_mass/A15 _BETA_345.png}
         \caption{$A_{22} \, \beta = 12^{\circ}$}
@@ -42,6 +62,13 @@ explaination about the input. something something somethingexplaination about th
         \includegraphics[width=\textwidth]{plots/kcs/added_mass/A15_BETA_120.png}
         \caption{$A_{22} \, \beta = 13^{\circ}$}
     \end{subfigure}
+    \caption{KCS vessel added mass comparison - I}
+    \label{fig:kcs_addedmass_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \ContinuedFloat
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/added_mass/A22 _BETA_60.png}
         \caption{$A_{22} \, \beta = 14^{\circ}$}
