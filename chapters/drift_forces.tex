@@ -1,3 +1,157 @@
 \chapter{DRIFT FORCES}
-\section{Problem statement}
-\section{Numerical solution}
+\section{Introduction}
+Mean drift forces are the mean non-linear forces which can be obtained using perturbation theory. Forces explained and computed in the previous chapters
+are first order forces. While solving boundary value problems to get the potential, pressure, forces, motions, etc. usually
+second order terms are ignored in order to reduce the complexity of the problem and also the mangitude of
+second order terms which are these mean forces is also very small. But when the actual responses are very high,
+these second order mean forces become important. These forces are proportional to swuare of the wave height while the 
+first order are proportional to the wave height. Primarily, mean drift forces are computed using two menthods:
+(a) far feild method and (b) near field method.
+
+This chapter deals with the mean drift force and moments acting on a stationary vessel in regula waves. This chapter
+presents the complete derivation of the second order force on an arbitrary shaped body moving with a steady 
+forward speed in regular waves using 3D panel based potential theory. Far field method introduced by
+\cite{maruo1957excess} is based on the diffracted and radiated wave energy and momentum flux at infinity. Near feild
+method introduced by \cite{boese1970einfache} uses direct hydrodynamic pressure integration over the wetted surface and 
+is based on 3D panel based potential theory.
+
+\section{Pertubation Expansions}
+Perturbation theory is used to obtain the approximation solution upto a certain accuracy. Solution or quantity is 
+expressed as a power series using a small paramater known as perturbation parameter. perturbation expression
+starts with an avarage solution.
+For example, 
+\begin{equation}
+    A = A_0 + \epsilon A_1 + \epsilon^2 A_2 + \cdots
+\end{equation}
+where, $\epsilon$ is the perturbation paramter and $A_0$ is the avarage solution of $A$.
+
+Now, Assuming small amplitute motion oscillations about mean position of the body, approximations can be obtain 
+up to second order with respect to the wave amplitute. Perturbation expressions of quantities 
+of interest using a small parameter $\epsilon$ of the order of the wave slope, are given below :
+
+\begin{itemize}
+    \item [1.] Expressions for velocity potential $\left(\phi = \phi_T\,e^{i\,w_e\,t}\right)$ :
+    \begin{equation}
+        \phi = \epsilon \phi^{(1)} + \epsilon^2 \phi^{(2)} + \cdots
+    \end{equation}
+
+    \item [2.] The free surface elevation $(\zeta)$ :
+    \begin{equation}
+        \zeta = \epsilon \zeta^{(1)} + \epsilon^2 \zeta^{(2)} + \cdots
+    \end{equation}
+
+    \item [3.] The relative wave elevation:
+    \begin{equation}
+        \zeta_r = \epsilon \zeta_r^{(1)} + \epsilon^2 \zeta_r^{(2)} + \cdots
+    \end{equation}
+
+    \item [4.] The vessel motions :
+    \begin{equation}
+        \vec{\eta}(t) = \epsilon \vec{\eta}^{(1)} + \epsilon^2 \vec{\eta}^{(1)} + \cdots
+    \end{equation}
+    where, $\vec{\eta}^{(1)} = (\eta_1, \eta_2, \eta_3, \eta_4, \eta_5, \eta_6)$ represents the first order surge, 
+    sway, heave, roll, pitch and yaw motions respectively.
+
+    \item [5.] The pressure field in the fluid :
+    \begin{equation}
+        \label{eq:per_perssure}
+        p = p^{(0)} + \epsilon p^{(1)} + \epsilon^{2} {^{(2)}} + \cdots
+    \end{equation}
+\end{itemize}
+
+\section{Pressure and Force derivations}
+\subsection{Pressure derivation}
+The pressure using Bernoullis equation is given as:
+\begin{equation}
+    p = \frac{1}{2}\rho\,U^2 - \rho\,\frac{\partial \phi_T}{\partial t} - \frac{1}{2}\rho |\nabla\phi_T|-\rho\,g\,z^2
+\end{equation} 
+After substituting the above expression in eq.(\ref{eq:per_perssure}), pressure quatities with respect 
+to different orders of $\epsilon$ are given as 
+\begin{equation}
+    p^{(0)} = - \rho g(z_B + z_0)
+\end{equation}
+where, $(\vec{X_0}) = (X_0, Y_0, Z_0)$ is the location of body coordinate system origin with respect to the global 
+coordinate system and $\vec{x_B}=(x_B, y_B, z_B)$ the location of the point where the quantiy is begin computed in the body coordinate
+system.
+First order expression for pressure is given as:
+\begin{align}
+    P^{(2)} &= -\rho\frac{\partial \phi^{(2)}}{\partial t} + \rho\,U\frac{\partial \phi^{(2)}}{\partial x} -\frac{\rho}{2}
+    \left\{\left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2 + \left(\frac{\partial \phi^{(1)}}{\partial y}\right)^2 + 
+    \left(\frac{\partial \phi^{(1)}}{\partial z}\right)^2\right\} \\ \nonumber
+    &-\rho\left\{x^{(1)}\cdot\nabla \left(\frac{\partial \phi^{(1)}}{\partial t} - U\frac{\partial \phi}{\partial x}\right)\right\}
+    - \rho g z^{(2)}
+\end{align}
+where, $z^{(2)} = [\eta_4\eta_6 x_B + \eta_5\eta_6 y_B - \frac{1}{2}(\eta_4^2 + \eta_5^2)z_B]$. All the potentails and 
+their derivatives are calculated at mean position.
+\subsection{Relative wave elevation}
+Relative wave elevation is the distance between the wave surface and the instantaneous waterline. To calculate the
+relative wave elevation, first absolute wave elevation needs to be calculated along the waterline. The waterline is obtained 
+by extracting the edges of the panels which are at the water surface. According to the dynamic free surface boundary 
+condition the pressure at free surface is zero ( guage pressure ) i.e. at $\zeta=0$, $p=0$. Hence, 
+\begin{align}
+    p &= 0 \quad \text{at} \quad z=\zeta \\ \nonumber
+    \rho g \zeta + \rho\frac{\partial \phi}{\partial t} - \rho U \frac{\partial \phi}{\partial x} &=0 \quad \text{on} \quad z=\zeta 
+\end{align}
+Therefore the above equation yeilds :
+\begin{equation}
+    \zeta^{(1)} = -\frac{1}{g}\left(i\omega_e \phi_T - U\frac{\partial \phi_T}{\partial x}\right) e^{i\,\omega_e\,t}
+\end{equation}
+The relative wave elevation is  then obtained by subtracting the total movement of the body in $z$-direction from the
+absolute wave elevation.
+\begin{equation}
+    \zeta^{(1)}_r =\zeta^{(1)} - (\eta_3 - \eta_5x + \eta_4y)
+\end{equation}
+where, $(x, y)$ are the centroid of the waterline panels or the waterline element.
+\subsection{Forces and moments}
+After substitution we can get 
+\begin{align}     
+    F &= -\int_{wl}\frac{1}{2}\rho g (\zeta_r^{(1)})^2 \frac{\vec{\eta}^{(0)}}{\sqrt{1-\eta_3^2}} dl + 
+    \int_{S_0}\rho\left(\frac{\partial \phi^{(2)}}{\partial t} - U\frac{\partial \phi^{(2)}}{\partial x}\right)\vec{\eta}^{(0)}ds \\ \nonumber
+    &+ \int_{S_0} \frac{\rho}{2}\left\{\left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2 + \left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2
+    + \left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2\right\}\vec{\eta}^{(0)} \,ds \\ \nonumber
+    &+\int_{S_0}i\omega_e\rho\left\{(\eta_1-\eta_6y_B+\eta_5z_B)\frac{\partial \phi^{(1)}}{\partial x} \right. \\ \nonumber
+    &\left. +(\eta_2+\eta_6x_B-\eta_4z_B)\frac{\partial \phi^{(1)}}{\partial y} + (\eta_3-\eta_5x_B+\eta_4y_B)
+    \frac{\partial \phi^{(1)}}{\partial z}\right\}\vec{\eta}^{(0)} \,ds \\ \nonumber
+    &- \rho g A^{(0)}\left[\eta_4 \eta_6 x_{B,f} + \eta_5\eta_6 y_{B,f} + \frac{1}{2}(\eta_4^2+\eta_5^2)Z_0\right]\hat{k} \\ \nonumber
+    &-\omega^2_e\{-\eta_2\eta_6m + \eta_4\eta_6m z_g -\eta_6\eta_6 m x_g + \eta_3 \eta_5 m + \eta_4\eta_5y_g
+    - \eta_5\eta_5 m x_g\} \hat{i} \\ \nonumber
+    &-\omega^2_e\{\eta_1\eta_6m + \eta_5\eta_6m z_g -\eta_6\eta_6 m y_g - \eta_3 \eta_4 m + \eta_4 \eta_4 m y_g
+    + \eta_4 \eta_5 m x_g\} \hat{j} \\ \nonumber
+    &-\omega^2_e\{-\eta_1\eta_5 m - \eta_5\eta_5m z_g +\eta_5\eta_6 m y_g + \eta_2 \eta_4 m - \eta_4 \eta_4 m z_g
+    + \eta_4 \eta_6 m x_g\} \hat{k}
+\end{align}
+
+Similarly, the second order moment can be given as :
+\begin{align}
+    \vec{M}^{(2)} &= -\int_{wl}\frac{1}{2}\rho g (\zeta_r^{(1)})^2 (x_B\times \vec{n}^{(0)}) dl \\ \nonumber
+    &+\rho\int_{S_0}\left(\frac{\partial \phi^{(2)}}{\partial t} - U\frac{\partial \phi^{(2)}}{\partial x}\right)
+    (\vec{x_B}\times\vec{n}^{(0)})\,ds \\ \nonumber
+    &+\frac{\rho}{2}\int_{S_0}\left\{\left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2
+    \left(\frac{\partial \phi^{(1)}}{\partial y}\right)^2 + \left(\frac{\partial \phi^{(1)}}{\partial z}\right)^2
+    \right\}(\vec{x_B}\times\vec{n}^{(0)})\,ds \\ \nonumber
+    &+i\omega_e\rho\int_{S_0}
+    \left\{(\eta_1-\eta_6y_B+\eta_5z_B)\frac{\phi^{(1)}}{\partial x} \right. \\ \nonumber 
+    &\left. + (\eta_2-\eta_6x_B-\eta_4z_B)\frac{\phi^{(1)}}{\partial y}\right. \\ \nonumber
+    &\left. + (\eta_3-\eta_5x_B+\eta_4y_B)\frac{\phi^{(1)}}{\partial z}\right\}
+    (\vec{x_B}\times \vec{n}^{(0)})\,ds \\ \nonumber
+    &-\omega_e^2\{\eta_2\eta_4my_g-\eta_1\eta_6mz_g-\eta_4\eta_6I_{54}
+    -eta_5\eta_6I_{55}-\eta_6\eta_6I_{56} \\ \nonumber
+    &+\eta_3\eta_4mz_g-\eta_1\eta_5my_g+\eta_4\eta_5I_{64}+\eta_5\eta_5 I_{65}
+    +\eta_5\eta_6 I_{66} \}\hat{i} \\ \nonumber
+    &-\omega_e^2\{\eta_3\eta_5mz_g-\eta_2\eta_6mz_g+\eta_4\eta_6I_{44}+\eta_5\eta_6 I_{45}
+    +\eta_6\eta_6I_{46}\\ \nonumber
+    &+\eta_1\eta_5mx_g-\eta_2\eta_4mx_g-\eta_4\eta_4 I_{64}-\eta_4\eta_5 I_{65}-\eta_4\eta_6 I_{66}\} \hat{j} \\ \nonumber
+    &-\omega_e^2\{\eta_1\eta_6mx_g-\eta_3\eta_5my_g-\eta_4\eta_5my_g-\eta_4\eta_5 I_{44}
+    -\eta_5\eta_5 I_{45}-\eta_5\eta_6 I_{46} \\ \nonumber
+    &+\eta_2\eta_6my_g-\eta_3\eta_4mx_g+\eta_4\eta_4 I_{54}+\eta_4\eta_4 I_{55}
+    +\eta_4\eta_6 I_{56} \}\hat{k} \\ \nonumber
+    &+\rho g \left[-V^{(0)}\eta_1\eta_6+V^{(0)}\eta_4\eta_5x_{CB}-V^{(0)}\eta_5\eta_6z_{CB}
+    -\frac{1}{2}V^{(0)}(\eta_4^2-\eta_6^2)y_{CB} \right. \\ \nonumber
+    &\left.-\eta_4\eta_6L_{12}-\eta_5\eta_6L_{22}-\frac{1}{2}(\eta_4^2+\eta_5^2)Z_0A^{(0)}y_f 
+    +\eta_5\eta_6V^{(0)}Z_0\right]\hat{i} \\ \nonumber
+    &+\rho g \left[-V^{(0)}\eta_2\eta_6+V^{(0)}\eta_4\eta_6z_{CB}+\frac{1}{2}V^{(0)} 
+    (n\eta-5^2-\eta_6^2)x_{CB} \right. \\ \nonumber
+    &\left. +\eta_4\eta_6 L_{11}+\eta_5\eta_6L_{12}+\frac{1}{2}(\eta_4^2+\eta_5^2)Z_0A^{(0)}x_f
+    -\eta_4\eta_6 Z_0V^{(0)}\right]\hat{j} \\ \nonumber
+    &+\rho g V^{(0)}(\eta_1\eta_4+\eta_2\eta_5+\eta_5\eta_6x_{CB}-\eta_4\eta_6y_{CB})\hat{k}
+\end{align}

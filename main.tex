@@ -5,11 +5,10 @@
 \usepackage{times}
 \usepackage{t1enc}
 \usepackage{float}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath,amsfonts,amssymb,amsthm, bm}
 \usepackage{mathrsfs}
 \usepackage[autostyle]{csquotes}
 \usepackage{longtable}
-\usepackage{amsfonts}
 \usepackage{amstext}
 \usepackage{threeparttable}
 \usepackage{textcomp}
@@ -31,8 +30,8 @@
 \usepackage{mwe}
 \usepackage{hyperref}
 \hypersetup{
-    citecolor=blue,
-    colorlinks=true,
+    % citecolor=blue,
+    % colorlinks=true,
     linkcolor=blue,
     filecolor=blue,      
     urlcolor=blue
@@ -97,10 +96,6 @@
 \input{chapters/title_page}
 
 \newpage
-% \pagenumbering{arabic}
-\input{chapters/certificate}
-
-\newpage
 \tableofcontents
 
 \newpage
@@ -111,9 +106,18 @@
 \listoffigures
 \addcontentsline{toc}{chapter}{LIST OF FIGURES}
 
+\pagenumbering{Roman}
+
+\newpage
+\input{chapters/certificate}
+
+\newpage
+\input{chapters/aknowledgement.tex}
+
 \newpage
 \input{chapters/abstract}
-
+% \cleardoublepage
+\pagenumbering{arabic}
 \newpage
 \input{chapters/introduction}
 
