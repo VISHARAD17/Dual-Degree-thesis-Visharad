@@ -30,6 +30,13 @@ $\frac{\partial G}{\partial n}$ denotes the derivative of the Green function in 
 \begin{equation}
     \frac{\partial G}{\partial n} = \frac{\partial G}{\partial x}n_x + \frac{\partial G}{\partial y}n_y + \frac{\partial G}{\partial z}n_z
 \end{equation}
+The oscilatory potential components $\phi_k(k=1, 2, \cdots, 6)$ must satisfy the free-surface condition
+and the condition that the fluid on the hull surface must move identically to the hull surface. Hence, 
+\begin{equation}
+    \frac{\partial \phi_j}{\partial n} = i\omega_e n_j + Um_j \quad \text{on}\; S \\
+\end{equation}
+
+
 
 \section{Numerical Discretization}
 To solve the eq. (\ref{eq:integral_eq}), the body surface is discretized into $M$ panels of area 
@@ -56,6 +63,7 @@ In physical terms, $\alpha_{ij}$ denotes the velocity induced at the $i^{th}$ pa
 
 Now, the eq.(\ref{eq:alpha_int_eq}) can be written in the matrix format as :
 \begin{equation}
+    \label{eq:sigma_alpha}
     [\sigma] = 2[\alpha - I]^{-1}[v_n]
 \end{equation}
 where, $I$ represents the unit matrix. $[\alpha]$ is an $m\times m$ cross matrix where $m$ is the total no. of panels. Using the similar adjustments as done in the eq.(\ref{eq:alpha_int_eq}), eq.(\ref{eq:vel_pot}) can be written as
@@ -218,6 +226,7 @@ In the above expressions (\ref{eq:partial_r_x}), (\ref{eq:partial_r_y}), (\ref{e
 \subsection{Frequency dependent part of Green function}
 The frequency dependent part of the integrals of the green function which is $\Tilde{G}(x, x_s, \omega_e)$ and its derivatives are 
 evaluated using the numerical methods given in \cite{telste1986numerical}. The given expressions for derivatives and integrals are shown below : 
+
 \begin{align}
     \tilde{G}(\boldsymbol{x},\boldsymbol{x_s}, \omega_e) &= 2f\left[ R_0(h,v) - i \pi J_0(h)e^{v}\right]\\
     \frac{\partial{\tilde{G}_0}}{\partial{\rho_G}} &= -2f^{2}\left[R_1(h,v)-i\pi J_{1}(h)e^v\right]\\

@@ -1,6 +1,85 @@
 \chapter{FORCES and MOTIONS}
-
 \section{Wave Potentials}
-how to compute force 
+Once the $[\alpha]$ matrix is computed using the expressions derived in the previous sections. Using
+the eq.(\ref{eq:sigma_alpha}) we can solve for unknown source strength $\sigma$. Here, normal velocity
+vector $\{v_n\}$ matrix will be different for radiation and scattering potentials. It is computed by applying 
+the boundary conditions given in the section(\ref{sec:Boundary condition}). For $\{v_n\}$ related to
+scattering problem requires incident potential given by 
+\begin{equation}
+    \label{eq:incident_pot}
+    \phi_I = \frac{igA}{\omega_I} \exp[-ik_I(x\cos \beta + y\sin \beta)+kz]
+\end{equation}
+Note that, all the potentials are computed at the centroid of the panels. After applying respective 
+boundary conditions for radiation and scattering problem unknown source strength can be calculated for the 
+respective potentials / problems.
+
+Once, the $[\beta]$ matrix is computed using the green function explained in sec.(\ref{sec:green_fun}), combining 
+it with respective source strength of radiation and scattering problems,using the eq.(\ref{eq:vel_pot})
+respective potentials can be computed.
+
+$\phi_D$ is used to denote scattering potential and $\phi_k (k=1, 2, \cdots, 6)$ is used to denote the 
+radiation potential in all 6-degrees of freedom. According to \cite{salvesen1970ship} for radiation potential $\phi_k$ 
+correction terms are added for $5^{th}$ and $6^{th}$ mode of motion.
+\begin{align}
+    \phi_j &= \phi^0_j \quad \text{for} j = 1, 2, 3, 4 \\ \nonumber 
+    \phi_5 &= \phi_5 +\frac{U}{i\omega_e} \phi^0_3 \\ \nonumber 
+    \phi_6 &= \phi^0_6 - \frac{U}{i\omega_e} \phi^0_2
+\end{align}
+
+$\phi^0_j$ are the zero speed terms computed without the effect forward speed, process to 
+compute these quantities is given in \cite{guha2012development}. But, there is a slight change while
+computing the zero speed terms given in this paper which is that in the boundary condition used,
+forward speed is considered and the boundary condition given in \ref{sec:Boundary condition} is used.
+Then after, to the obtained radiation potentials, perticulary for $5^{th}$ and $6^{th}$ mode of motions 
+extra terms are added according to the above equations. Once, the radiation potential is computed 
+added mass and radiation damping can be obtained.
 \section{Exciting forces}
-\section{Forward speed RAO}
+Once all potentials are computed, through direct integration on the submerged surface forces 
+can be computed.
+{\bf Froude Krylov force} is calculated using incident wave potential given in eq.(\ref{eq:incident_pot}). Hence, 
+equation for Froude Krylov force / incident force for modes $(k=1, 2, \cdots, 6)$ is 
+\begin{equation}
+    F_I^k = -\iota \omega\int_{S} \phi_I n_k ds
+\end{equation}
+Similar to Froude Krylov force, {\bf Scattering force} is obtained through integration of scattering force over the 
+submerged surface. Hence, for all modes $(k=1, 2, \cdots, 6)$ equation for scattering force is 
+\begin{align}
+    F_D^k &= \rho \int_{S}(\iota \omega_e n_k - Um_k)\phi_D\,ds \\ \nonumber
+    &= -\rho \int_{S}\phi_k^0\frac{\partial \phi_I}{\partial n} ds \quad \text{for} k=1, 2, 3, 4 \\ \nonumber 
+    &= -\rho \int_{S}\phi_k^0\frac{\partial \phi_I} ds + \frac{\rho U}{i\omega_e}\int_{S}\phi^0_3 
+    \frac{\partial \phi_I} ds \quad \text{for} k=5 \\ \nonumber
+    &= -\rho \int_{S}\phi_k^0\frac{\partial \phi_I} ds - \frac{\rho U}{i\omega_e}\int_{S}\phi^0_2
+    \frac{\partial \phi_I} ds \quad \text{for} k=6
+\end{align}
+Now, the total {\bf exciting force} amplitute (Fourde Krylov + Scattering) in mode $(k=1, 2, \cdots 6)$ is given by 
+\begin{equation}
+    \boldsymbol{F} = F^k_I + F^k_D 
+\end{equation}
+\section{Radiation forces}
+The radiation wave load/force for modes $(k=1, 2, \cdots, 6)$ is given by 
+\begin{align}
+    F_R^k &= -\iota \omega_e \rho \int_{S}\phi_k n_k ds \\ \nonumber
+          &= \omega_e^2 A_{jk} - \iota \omega_e B_{jk}
+\end{align}
+In the expansion of above equation there are two terms, the term proportional to the acceleration is 
+added mass and the one proportional to the velocity is radiation damping. Equations for added mass and
+radiation damping is given as 
+\begin{align}
+    A_{jk} &= -\frac{\rho}{\omega_e}\int_{S}\text{Im}(\phi_k) n_j ds \\ 
+    B_{jk} &= -\rho \int_{S} \text{Re}(\phi_k)n_j ds 
+\end{align}
+Note, that Added mass $A_{jk}$ and Radiation damping $B_{jk}$ are real valued. Also the subscript $(jk)$ denotes
+the added mass or radiation damping in $j^{th}$ mode of motion due to the body oscillation along the 
+$k^{th}$ direction.
+\subsection{Forward speed RAO}
+For a regular incident wave of unit amplitute the steady state motion will also sinusoidal and the steady 
+state amplitute $\{\xi\}$ is governed by :
+\begin{align}
+    -\omega^2[M + A]\{\xi\} + i\omega[B]\{\xi\} + [C]\{\xi\} = \{F\}
+\end{align}
+
+where $[M]$ represents the mass matrix, $[A]$ represents the added mass matrix, $[B]$ denotes the radiation damping matrix, $[C]$ denotes the stiffness matrix, $\{F\}$ denotes the external force vector and $\{\xi\}$ denotes the vector of steady state displacement amplitude. The response amplitude operator $\{\xi\}$ is a $6N_b \times 1$ vector given by
+
+\begin{align}
+    \{\xi\} = \left(-\omega^2[M + A] + i\omega[B] + [C]\right)^{-1} \{F\}
+\end{align}

@@ -84,7 +84,7 @@ a4paper,left=1.2in,right=1.2in,top=1.2in,bottom=1.2in,
 %% makes all tables and figures have single spacing automatically.
 \RequirePackage{setspace} 
 \RequirePackage{atbeginend} % used to redefine the list environs
-\setstretch{1.2}
+\setstretch{1.5}
 
 
 \BeforeBegin{itemize}{\vspace*{-5ex}\begin{singlespace}}
