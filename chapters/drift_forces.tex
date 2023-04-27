@@ -59,7 +59,11 @@ of interest using a small parameter $\epsilon$ of the order of the wave slope, a
     \end{equation}
 \end{itemize}
 
+
+
 \section{Pressure and Force derivations}
+
+
 \subsection{Pressure derivation}
 The pressure using Bernoullis equation is given as:
 \begin{equation}
@@ -102,8 +106,31 @@ absolute wave elevation.
     \zeta^{(1)}_r =\zeta^{(1)} - (\eta_3 - \eta_5x + \eta_4y)
 \end{equation}
 where, $(x, y)$ are the centroid of the waterline panels or the waterline element.
+
+
 \subsection{Forces and moments}
-After substitution we can get 
+The hydrodynamic force is given as 
+\begin{equation}
+    F_H = -\int_S P\,n_j\,ds \quad \quad j=1, 2,\cdots, 6
+\end{equation}
+Using the perturbation expansions, equations for force can be written as
+\begin{equation}
+    \label{eq:per_force}
+    \vec{F} = -\left(\int_{S_0}ds+\int_{wl}\zeta_r dl\right)(p^{(0)} + \epsilon p^{(1)} +
+    \epsilon^2 p^{(2)}) (\vec{n}^{(0)}+\epsilon(\vec{\theta}^{(0)} \times \vec{n}^{(0)})+\epsilon^2H\vec{n}^{(0)})
+\end{equation} 
+The waterline integral arises due to the condideration of the first order wetted surface 
+area $S_1$ which is the additional instantaneous surface of the hull below water considering 
+both wave elevation and the motion of the body.
+\begin{equation}
+    \int_{S_1}\cdots ds = \int_{wl} dl \int_{0}^{\zeta_r}\cdots \frac{dz}{\sqrt{1-n^2_3}}
+\end{equation}
+
+Here, $wl$ is the waterline of the ship, $\zeta_r$ is the relative wave elevation and $dz/\sqrt{1-n^2_3}$ is the inclined height for 
+non-wall sided surface. Now, after expanding the above equation and separating the terms with 
+$\epsilon$, $\epsilon^1$ and $\epsilon^2$ gives the zeroth, first and second order force respectively.
+Now, after substituting relative wave elevation in the eq(\ref{eq:per_force}) and extracting terms corresponding
+to $\epsilon^2$, second order force can be obtained whose equation is given below :
 \begin{align}     
     F &= -\int_{wl}\frac{1}{2}\rho g (\zeta_r^{(1)})^2 \frac{\vec{\eta}^{(0)}}{\sqrt{1-\eta_3^2}} dl + 
     \int_{S_0}\rho\left(\frac{\partial \phi^{(2)}}{\partial t} - U\frac{\partial \phi^{(2)}}{\partial x}\right)\vec{\eta}^{(0)}ds \\ \nonumber
@@ -147,9 +174,9 @@ Similarly, the second order moment can be given as :
     +\eta_4\eta_6 I_{56} \}\hat{k} \\ \nonumber
     &+\rho g \left[-V^{(0)}\eta_1\eta_6+V^{(0)}\eta_4\eta_5x_{CB}-V^{(0)}\eta_5\eta_6z_{CB}
     -\frac{1}{2}V^{(0)}(\eta_4^2-\eta_6^2)y_{CB} \right. \\ \nonumber
-    &\left.-\eta_4\eta_6L_{12}-\eta_5\eta_6L_{22}-\frac{1}{2}(\eta_4^2+\eta_5^2)Z_0A^{(0)}y_f 
-    +\eta_5\eta_6V^{(0)}Z_0\right]\hat{i} \\ \nonumber
-    &+\rho g \left[-V^{(0)}\eta_2\eta_6+V^{(0)}\eta_4\eta_6z_{CB}+\frac{1}{2}V^{(0)} 
+    &\left.-\eta_4\eta_6L_{12} -\eta_5\eta_6L^{22}-\frac{1}{2}(\eta_4^2+\eta_5^2)
+    Z_0A^{(0)}y_f+\eta_5\eta_6V^{(0)}Z^{(0)}\right]\hat{i} \\ \nonumber
+    &+\rho g \left[-V^{(0)}\eta_2\eta_6+V^{(0)}\eta_4\eta_6 z_{CB}+\frac{1}{2}V^{(0)} 
     (n\eta-5^2-\eta_6^2)x_{CB} \right. \\ \nonumber
     &\left. +\eta_4\eta_6 L_{11}+\eta_5\eta_6L_{12}+\frac{1}{2}(\eta_4^2+\eta_5^2)Z_0A^{(0)}x_f
     -\eta_4\eta_6 Z_0V^{(0)}\right]\hat{j} \\ \nonumber

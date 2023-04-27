@@ -4,7 +4,7 @@ MDLHydroD software is explained in \cite{guha2013development} and \cite{guha2015
 For comparison KCS and KVLCC2 vessels are considered. 
 
 \section{KCS Vessel}
-KCS ( Krisco container ship ) is a fine form container ship and its particulars are listed in Table \ref{tab:kvlcc2_inp}. For comparison, frequencies are used from
+KCS ( Krisco container ship ) is a fine form container ship and its particulars are listed in Table \ref{tab:kcs_particulars}. For comparison, frequencies are used from
 $-0.03$ with $+0.03$ increment, in totoal $34$ frequencies are used. Ship's speed is $8\,\si{m.s^{-1}}$. Incident angles used 
 ranges from $0^{\circ}$ to $345^{\circ}$ with $15^{\circ}$ increment. Simulation is ran for 6 modes of motion.  
 The comparison of added mass for different angles are shown in figure \ref{fig:kcs_addedmass_1} and figure \ref{fig:kcs_addedmass_2}.
@@ -12,6 +12,7 @@ Comparisons of radiation damping is shown in figure 2. Comparisons of Froude Kry
 Comparisons of Scattering force is shown in figure 2. Comparisons of RAO is shown in figure 2.
 
 \begin{table}[tbp]
+    \label{tb:kcs_perticulars}
     \caption[Table]{KCS principal particulars\label{tab:kcs_particulars}}
     \centering{%
     \setlength{\tabcolsep}{10pt} % Default value: 6pt
@@ -133,18 +134,26 @@ Comparisons of Scattering force is shown in figure 2. Comparisons of RAO is show
 \end{figure}
 
 \section{KVLCC Vessel}
-Input parameters for KVLCC2 are given in the following table.
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|}
-        \hline
-        parameter & value \\ 
-        \hline
-        \title{something}
-        something & something \\
-        something & something \\
-        \hline
+Input parameters for KVLCC2 are given in the following table. 
+\lipsum[2]
+\lipsum[2]
+\begin{table}[t]
+    \caption[Table]{KVLCC2 principal particulars\label{tab:kvlcc2_particulars}}
+    \centering{%
+    \begin{tabular}{{|c|c|}}
+    \hline
+    Main Particulars & Value\\
+    \hline
+    Length between perpendiculars $L ~(m)$ & 320  \\ 
+    Breadth $B ~(m)$ & 58  \\
+    Draft $d ~(m)$ & 20.8  \\
+    Displacement $\nabla ~(m^{3})$ & 312622  \\
+    Block coefficient $C_{b}$ & 0.8098   \\
+    Radius of Gyration $R_{zz}/L$ & 0.25 \\
+    Metacentric height $GM ~(m)$ & 5.71 \\
+    LCB (\% of $L$ from midship, forward +ve) & 3.48\% \\
+    Forward speed & 8.00 $\si{ms^{-1}}$ \\
+    \hline
     \end{tabular}
-    \caption{Parameters KCS vessel}
-    \label{tab:kvlcc2_inp}
-\end{table}
+    }
+    \end{table}
