@@ -2,33 +2,138 @@
 
 %%%%%%%%%%%%%%%%%%%%% Objective %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objective}
-This Dual Degree project has two main objectives. First is the computation of forces and motion characteristics of a floating body with a zero or non-zero speed in regular waves. A 3D panel-based potential theory method using an infinite-depth green function is used for this computation. The second main objective is the computation of second-order forces for drift force. This software can be used for simple single-body cases and complex multi-body cases. Also, the program's output is validated against industry standard software such as Ansys AQWA and WAMIT v6.
+This Dual Degree project aims to acheive two primary goals. The first objective is to calculate 
+the motion characteristics and forces on a floating structure traveling at a low to moderate 
+forward speed in regular waves for the {\bf HydRA}. This computation is done by utilizing a 3D 
+panel-based potential theory method that involves using an infinite-depth green function. 
+The second main objective is to compute the second-order forces i.e. Mean drift force. 
+The implementation is done by keeping in mind that this method can be used for single body case 
+as well as for multibody case. Also, then the program's output is validated against 
+the MDLHydroD software.
 
-The rest of the thesis is organized as follows. Chapter 1, Introduction, Objective of the project, background and motivation, and a literature review of the research paper used for this project are given. Later, in Chapter 2, the mathematical problem setup and its derivation is given. In Chapter 3, the solution to the numerical mathematical problem is shown, and the motions and forces are computed. Similarly, in Chapter 4, Drift force computation is explained. Later in the subsequent chapter results of the project are compared against Softwares like MDLHydroD and WAMIT6.
+The thesis is structured in the following manner. The first chapter includes an introduction, 
+the objectives of the project, the background and motivation, and a literature review of the 
+research paper utilized in this project. The second chapter provides an explanation of the 
+mathematical problem setup and derivation. Chapter 3 illustrates the solution to the numerical 
+mathematical problem. Chapter 4, elaborates on the calculation of wave 
+forces and motions. Likewise, Chapter 5 clarifies 
+the computation of drift force. In the last chapter, the project outcomes are compared with 
+other software tools such as MDLHydroD and Ansys AQWA.
 
 
 %%%%%%%%%%%%%%%%% Background and Motivation %%%%%%%%%%%%%%%%%%%%%%
 \section{Background and Motivation}
-A floating body is subjected to various forces, such as environmental loads due to wind, currents, waves, etc. The sea-keeping problem involves calculating the hydrodynamic parameters and forces acting on a floating structure in waves. These hydrodynamic forces are calculated using numerical methods and potential theory for the wave body interaction problem. This can be further used to calculate the RAOs of various vessels.
+A floating object is exposed to multiple forces, such as wind, currents, waves, and other 
+environmental loads. The issue of sea-keeping involves the computation of hydrodynamic 
+parameters and forces acting on a floating structure when it is in waves. To solve the 
+problem of wave-body interaction, hydrodynamic forces are calculated using numerical 
+methods and potential theory. These calculations can then be used to compute the RAOs 
+of different types of vessels.
 
-Hydrodynamic analysis software can help naval architectures optimize the design of vessels in regular waves. It can provide insights into the vessel's performance in various wave conditions, allowing designers to make informed decisions about the shape and size of the vessel. Also, it saves costs by reducing the need for expensive physical testing.
-Software for hydrodynamic analysis can allow designers to iterate designs faster, as they can quickly simulate and evaluate the performance of different design configurations. This can help reduce the time-to-market for new vessels and increase productivity.
+Hydrodynamic analysis software can help naval architectures optimize and enhance the design of 
+vessels in regular waves. It can provide insights into the vessel's performance in various 
+wave conditions, 
+allowing designers to make informed decisions about the shape and size of the vessel. 
+Moreover, it saves costs by reducing the need for expensive physical testing.
+Software for hydrodynamic analysis can allow designers to iterate designs faster, 
+as they can quickly simulate and evaluate the performance of different design configurations. 
+This can help reduce the time-to-market for new vessels and increase productivity.
 
-The primary goal of this project is to develop a flask-based web application named 'HydRA' capable of computing hydrodynamic properties such as Froude Krylov force, scattering force, RAO, radiation damping 
- , and Added Mass for a vessel in zero and non-zero speed scenarios. Also, the implementation of drift forces captures the effect of second-order forces in the deep sea. The main idea behind building an in-house web application is to have a solid foundation for a hydrodynamic analysis tool that can be further improved and extended toward more complex problems. The main reference theses used for this project are \citet{guha2015estimation}, and \cite{guha2012development}.
+The primary goal of this project is to develop a flask-based web application named 'HydRA' 
+capable of computing hydrodynamic properties such as Froude Krylov force, scattering force, 
+RAO, radiation damping, and Added Mass for a vessel in zero and non-zero speed scenarios.
+Also, the implementation of drift forces captures the effect of second-order forces in 
+the deep sea. The main idea behind building an in-house web application is to have a 
+solid foundation for a hydrodynamic analysis tool that can be further improved and 
+extended toward more complex problems. The main reference theses used for this project 
+are \citet{guha2015estimation}, and \cite{guha2012development}.
 
 %%%%%%%%%%%%%%%%%%%%%% Literature review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Literature review}
 
-In the early stages of ship design, it is crucial to understand the ship's stability to operate efficiently in the sea. Analyzing a ship's hydrodynamic forces and motion characteristics in regular waves is crucial in  designing a stable and safe vessel. With the increase in the availability of computational power, computational fluid dynamics (CFD) has gained popularity in solving fluid-structure interaction problems. However, CFD still takes a significant time to estimate the motion response of floating structures to regular and random waves and is not a viable method during preliminary design. Due to this disadvantage, potential theory-based approaches are still accepted to design floating structures, including offshore oil production platforms, offshore wind turbines, and floating wave energy converters.
-The strip theory method, which divides a ship into a number of 2D strips along its length, can be credited with the early developments of the potential theory method. The solutions to various two-dimensional problems are combined to determine the three-dimensional hydrodynamics problem. Numerous authors have contributed to this field, including \cite{newman1979theory}, \cite{ogilvie1969rational}, \cite{beck1990documentation}, \cite{journee2001theoretical}, \cite{salvesen1970ship}. The work of Salvensen, Tuck, and Faltinsen shown in \cite{salvesen1970ship} became the widely accepted method that is still employed by the industry for the construction of floating structures. Since the strip theory relies on the slender body assumption, it was not quite applicable to ship structures and offshore structures, which are non-slender in shape. This led to the development of 3D panel-based potential theory where the floating vessel is discritized into quadrilateral or traingular panels sources of different source strengths.
-Tuck and Faltinsen 1970 \cite{salvesen1970ship} provides a detailed review of the theoretical and mathematical models used to predict the motion of ships in waves and the resulting sea loads acting on the hull, which is based on the pressure distribution around the hull and the wave-induced accelerations. The paper covers the effects of ship design parameters, wave steepness and frequency, and wave-induced motions on ship motions. It presents a mathematical model for calculating the sea loads acting on the hull. The paper then discusses the effect of ship design parameters, such as beam and draft, on ship motions and the influence of wave steepness and frequency.
-The calculation of the Green function efficiently for frequency and time domain analyses has been a long-standing research area. \cite{newman1979theory} provides a comprehensive list of methods to compute both frequency domain and time domain Green functions efficiently. Similar work on the zero speed frequency domain Green function has also been reported by \cite{telste1986numerical}. It describes the theoretical background of the green function and the numerical method used to evaluate it.
+During the initial phases of ship design, it is vital to have knowledge about the vessel's stability to ensure efficient and safe 
+operation at sea. Evaluating hydrodynamic forces and motion features of the ship in regular 
+waves is an essential factor for designing a stable and secure vessel. As computational power 
+has become more accessible, computational fluid dynamics (CFD) has become more popular 
+in solving problems related to the interaction between fluids and structures. 
+Despite advancements in CFD, it is a still time consuming process to predict responses. Therefore, 
+CFD may not be a practical option during the preliminary design stage. 
+Since, CFD is not feasible during the early stages of design due to its time-consuming nature,
+potential theory based methods are still widely used for designing floating structures like oil 
+production platforms, offshore wind turbines, wave energy converters, etc.
+The potential theory method has been advanced by the strip theory approach, 
+which involves dividing a ship into multiple 2D strips along its length. 
+By combining solutions to various two-dimensional problems, the three-dimensional 
+hydrodynamics problem can be determined. Many researchers have contributed to the 
+development of this approach which includes \cite{newman1979theory}, 
+\cite{ogilvie1969rational}, \cite{beck1990documentation}, \cite{journee2001theoretical}, 
+\cite{salvesen1970ship}. Beacause, the strip theory method assumes the bodies are slender, it was 
+not suitable for analyzing ship structures and offshore stuctures which have a non-slender shape.
+Therefore, a 3D panel based potential theory was developed. In this method, the floating vessel is
+descritized or is a mesh of quadrilateral or triangular panels with different source strengths.
 
-\cite{guha2013development} and \cite{guha2015estimation} discuss developing and validating a frequency domain program that uses numerical methods for predicting the motion and hydrodynamic forces acting on floating bodies, specifically ships.
+Tuck and Faltinsen 1970 \cite{salvesen1970ship} provides a detailed review of the theoretical 
+and mathematical models used to predict the motion of ships in waves and the resulting sea 
+loads acting on the hull, which is based on the pressure distribution around the hull and 
+the wave-induced accelerations. The paper covers the effects of ship design parameters, 
+wave steepness and frequency, and wave-induced motions on ship motions. It presents a 
+mathematical model for calculating the sea loads acting on the hull. The paper then 
+discusses the effect of ship design parameters, such as beam and draft, on ship motions 
+and the influence of wave steepness and frequency.
 
-In all the above cited papers all responses are in first order and in other word are linear. When the responses are high enough
-second order responses also become important.
-some literature review about drift force
+The calculation of the Green function efficiently for frequency and time domain analyses has 
+been a long-standing research area. \cite{newman1979theory} provides a comprehensive list of 
+methods to compute both frequency domain and time domain Green functions efficiently. 
+Similar work on the zero speed frequency domain Green function has also been reported 
+by \cite{telste1986numerical}. It describes the theoretical background of the green 
+function and the numerical method used to evaluate it.
 
-This project documents the theory behind developing an in-house wave analysis tool named `HydRA' (Hydrodynamic Response Analysis) that can accurately predict the wave loads and motions of a floating structure in various sea conditions. This tool is based on the potential theory of fluid mechanics and uses a numerical method to solve the wave-body interaction problem. The paper provides a detailed description of the theoretical background, numerical implementation, and tool validation. It demonstrates its effectiveness in predicting the wave loads and motions of different floating structures or ships. An in-house tool is developed in this project is to enable the development further to extend it to analyze complex nonlinear hydrodynamic problems such as maneuvering in waves and parametric excitation of ships and offshore structures. 
+The book \cite{liapis1986time} is considered very important book for studying dynamics of ships and
+floating structures. The book focuses on the time-domain analysis of ship motions and provides 
+an in-depth discussion of various methods for solving the differential equations of motion 
+for ships in time-domain, including numerical and analytical methods. This book also explains about the
+equations shown in the section \ref{sec:numerical_dis}.
+
+\cite{guha2013development} and \cite{guha2015estimation} discuss developing and validating a 
+frequency domain program that uses numerical methods for predicting the motion and hydrodynamic 
+forces acting on floating bodies, specifically ships.
+
+When a floating body is subjected to ocean waves, it experiences not only first-order forces 
+(linear wave forces) but also second-order forces, which are nonlinear in nature. 
+The second order forces are better known by their physical effects on a floating
+body as the added resistance or the mean drift forces
+Second order forces become important when wave induced motions are large. 
+Primarily, mean drift forces are computed using two menthods:
+(a) far feild method and (b) near field method. 
+
+Far field method was introduced by \cite{maruo1957excess} which is based on diffracted and radiated
+wave energy and momentum flux at infinity.
+The paper analyzes the experimental 
+data of model tests and the calculations based on hydrodynamic theory to estimate the additional 
+resistance or mean drift force on the ship due to wave-induced effects. The study indicates that the additional 
+resistance is proportional to the square of the wave amplitude and frequency, which is 
+consistent with the second-order wave theory.
+
+Near feild method was introduced by \cite{boese1970einfache} which is based on direct integration of 
+pressure on submerged surface inshort uses potential theory.
+This paper, describes a simple method for calculating the increase in resistance of a ship in waves. 
+The method involves calculating the wave drag of the ship at zero speed and then using a 
+correction factor to account for the effect of waves on the ship's resistance.
+
+\cite{faltinsen1980prediction},  \cite{pinkster1980low} talks about the derivation of the equations 
+for Mean drift forces. And also about the second order wave theroy. 
+\cite{faltinsen1980prediction} presents a method to predict the added resistance or drift force 
+and propulsion of a ship in a seaway. 
+The method is based on the potential theory and takes into account the 
+effects of wave-induced motions on the ship's performance. The paper provides a detailed 
+description of the theoretical background and numerical implementation of the method using
+the perturbation theory. 
+Faltinsen also presents experimental results that validate the accuracy of the method. 
+This paper is a significant contribution to the field of ship hydrodynamics, providing a 
+reliable and practical approach to predicting ship performance in a seaway.
+\cite{pinkster1980low} concludes that 
+
+This project documents the development of added feature i.e. to able to perform analysis 
+with the effect of forward speed for simple single body case as well as for complex multibody
+case for the "HydRA" tool begin developed in the Reaserch guild group at IIT Madras. In addition to 
+that theory about drift force and its solution is also disccued. 

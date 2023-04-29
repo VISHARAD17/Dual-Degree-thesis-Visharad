@@ -4,7 +4,8 @@ MDLHydroD software is explained in \cite{guha2013development} and \cite{guha2015
 For comparison KCS and KVLCC2 vessels are considered. 
 
 \section{KCS Vessel}
-KCS ( Krisco container ship ) is a fine form container ship and its particulars are listed in Table \ref{tab:kcs_particulars}. 
+KCS ( Krisco container ship ) is a fine form container ship and its particulars are listed in Table 
+\ref{tab:kcs_principal_particulars}. 
 For comparison, frequencies are used from
 $-0.03$ with $+0.03$ increment, in totoal $34$ frequencies are used. Ship's speed is $8\,\si{m.s^{-1}}$. Incident angles used 
 ranges from $0^{\circ}$ to $345^{\circ}$ with $15^{\circ}$ increment. Simulation is ran for 6 modes of motion.  
@@ -12,29 +13,28 @@ The comparison of added mass for different angles are shown in figure \ref{fig:k
 Comparisons of radiation damping is shown in figure 2. Comparisons of Froude Krylov force is shown in figure 2.
 Comparisons of Scattering force is shown in figure 2. Comparisons of RAO is shown in figure 2.
 
-\begin{table}[tbp]
-    \caption[Table]{KCS principal particulars\label{tab:kcs_particulars}}
-    % \label{tab:kcs_particulars}
-    \centering{%
+\begin{table}[h]
+    \centering
     \setlength{\tabcolsep}{10pt} % Default value: 6pt
     \renewcommand{\arraystretch}{1.17} % Default value: 1
     \begin{tabular}{|c|c|}
-    \hline
-    {\bf Main Particulars} & {\bf Value}\\
-    \hline
-     Length between perpendiculars $L ~(m)$ & 230 \\ 
-     Breadth $B ~(m)$ & 32.2  \\
-     Draft $d ~(m)$ & 10.8  \\
-     Displacement $\nabla ~(m^{3})$ & 52030  \\
-     Block coefficient $C_{b}$ & 0.651   \\
-     Radius of Gyration $R_{zz}/L$ & 0.25 \\
-     Metacentric height $GM ~(m)$ & 1.20 \\
-     LCB (\% of $L$ from midship, forward +ve) & -1.48\% \\
-    \hline
+        \hline
+        {\bf Main Particulars} & {\bf Value} \\
+        \hline 
+        Length between perpendiculars $L ~(m)$ & 230 \\ 
+        Breadth $B ~(m)$ & 32.2  \\
+        Draft $d ~(m)$ & 10.8  \\
+        Displacement $\nabla ~(m^{3})$ & 52030  \\
+        Block coefficient $C_{b}$ & 0.651   \\
+        Radius of Gyration $R_{zz}/L$ & 0.25 \\
+        Metacentric height $GM ~(m)$ & 1.20 \\
+        LCB (\% of $L$ from midship, forward +ve) & -1.48\% \\
+        \hline
     \end{tabular}
-    }
-   
+    \caption{$\text{KCS principal particulars}$}
+    \label{tab:kcs_principal_particulars}
 \end{table}
+
 
 \subsection{Added Mass}
 \begin{figure}[H]
