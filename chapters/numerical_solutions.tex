@@ -1,93 +1,124 @@
 \chapter{NUMERICAL SOLUTION}
-The complex potential on the submerged surface of the vessel is the key to solving the hydrodynamic problem. It will be shown that once the potential is known, all the hydrodynamic coefficients required to obtain all the vessel response, i.e., added mass, damping, and excitation forces, can be calculated.
+The complex potential on the submerged surface of the vessel is the key to solving the hydrodynamic problem. 
+It will be shown that once the potential is known, all the hydrodynamic coefficients required 
+to obtain all the vessel response, i.e., added mass, damping, and excitation forces, 
+can be calculated.
 
-The boundary value problem described in eq.(\ref{eq:kin_free_surface_cond}) to eq.(\ref{eq:body_surface_boundary_cond})  will be solved by a boundary element method. The body surface will be a suitable distribution of source singularities that satisfy the governing equation and the boundary conditions. Solving a Fredholm integral of the second kind over the discretized body boundary will determine the source strengths. 
+
+The boundary value problem described in eq.(\ref{eq:kin_free_surface_cond}) to 
+eq.(\ref{eq:body_surface_boundary_cond})  will be solved by a boundary element method. 
+The body surface will be a suitable distribution of source singularities that satisfy 
+the governing equation and the boundary conditions. Solving a Fredholm integral of the 
+second kind over the discretized body boundary will determine the source strengths. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Integral equation}
-The velocity potential at some point $(x, y, z)$ in the fluid domain can be expressed in terms of the surface distribution of sources.
+The velocity potential at some point $(x, y, z)$ in the fluid domain can be expressed in 
+terms of the surface distribution of sources.
 
 \begin{equation}
     \label{eq:vel_pot}
     \phi(\vec{x}) = \frac{1}{4\pi}\int_S \sigma(\vec{x_s})G(\vec{x}:\vec{x_s})\,dS
 \end{equation}
 
-where $\vec{x_s}$ denotes the source point of the body surface, $(\vec{x})$ denotes the point where the potential is being calculated, and $\sigma(\vec{x_s})$ is the unknown source strength distribution on the source point. Section (\ref{sec:green_fun}) will explain the Green function in the upcoming parts. 
-The Green function satisfies the continuity condition and all the boundary conditions, including the free surface and radiation boundary condition, except for the following normal velocity boundary condition on the hull surface:
+where $\vec{x_s}$ denotes the source point of the body surface, $(\vec{x})$ denotes the 
+point where the potential is being calculated, and $\sigma(\vec{x_s})$ is the unknown 
+source strength distribution on the source point. Section (\ref{sec:green_fun})
+explains about the Green function. 
+The Green function satisfies the continuity condition and all the boundary conditions, 
+including the free surface and radiation boundary condition, except for the following 
+normal velocity boundary condition on the hull surface, which is:
 
 \begin{equation}
     \label{eq:vel_boundary_cond}
     \frac{\partial \phi}{\partial n} = v_n \quad \text{on}\; S
 \end{equation}
 
-Here, $v_n(x, y, x)$ is the flow normal velocity on the hull surface, after applying the velocity boundary condition given in equation (\ref{eq:velocity_potential}) on the velocity potential (\ref{eq:vel_pot}), the below equation is obtained, also known as Fredholm integral of the second kind.
+Here, $v_n(x, y, x)$ is the flow normal velocity on the hull surface, after applying the 
+velocity boundary condition given in (\ref{eq:velocity_potential}) on the velocity 
+potential (\ref{eq:vel_pot}), the below equation is obtained, also known as Fredholm integral 
+of the second kind :
 \begin{equation}
     \label{eq:integral_eq}
     -\frac{1}{2}\sigma(\vec{x_s}) + \frac{1}{4\pi}\int_S\sigma(\vec{x_s})\frac{\partial G(\vec{x}:\vec{x_s})}{\partial n} = v_n \quad \text{on}\; S
 \end{equation}
-In the above equation, it can be shown that the first term reduces to $-\frac{\sigma}{2}$. Also, 
-$\frac{\partial G}{\partial n}$ denotes the derivative of the Green function in the outward normal direction. This derivative of $G$ can be evaluated from the equation :
+Here, $\frac{\partial G}{\partial n}$ denotes the derivative of the Green function in the outward normal direction. This normal derivative of $G$ can be 
+evaluated using its partial dervitives in $x$, $y$ and $z$ as :
 \begin{equation}
     \frac{\partial G}{\partial n} = \frac{\partial G}{\partial x}n_x + \frac{\partial G}{\partial y}n_y + \frac{\partial G}{\partial z}n_z
 \end{equation}
-The oscilatory potential components $\phi_k(k=1, 2, \cdots, 6)$ must satisfy the free-surface condition
-and the condition that the fluid on the hull surface must move identically to the hull surface. Hence, 
-\begin{equation}
-    \frac{\partial \phi_j}{\partial n} = i\omega_e n_j + Um_j \quad \text{on}\; S \\
-\end{equation}
+% The oscilatory potential components $\phi_k(k=1, 2, \cdots, 6)$ must satisfy the free-surface condition
+% and the condition that the fluid on the hull surface must move identically to the hull surface. Hence, 
+% \begin{equation}
+%     \frac{\partial \phi_j}{\partial n} = i\omega_e n_j + Um_j \quad \text{on}\; S
+% \end{equation}
+Now, while calculating influence on a panel because of other source panel, the panel where the 
+potential is being calculated and the source panel becomes the same. Due to this, frequency 
+independant part of the green function tends to go to infinity. This case is known as 
+singularity. To compensate for that influence, $-\frac{1}{2}\sigma$ is added into the 
+equation according to the residual theory.
 
 
 
 \section{Numerical Discretization}
 \label{sec:numerical_dis}
-To solve the eq. (\ref{eq:integral_eq}), the body surface is discretized into $M$ panels of area 
+To solve (\ref{eq:integral_eq}), the body surface is discretized into $M$ panels of area 
 $\Delta S_m$ where $m = (1, 2, \cdots, M)$. Every entity presented here is computed at the centroid of the panel.
-Hence, the source strength as well is computed over each panels centroid. Now, for $i^{th}$ panel eq.(\ref{eq:integral_eq}) can be written as:
+Hence, the source strength as well is computed over each panels centroid. Now, for $i^{th}$ panel 
+(\ref{eq:integral_eq}) can be written as:
 \begin{equation}
     \label{eq:dis_integral_eq}
     -\frac{1}{2}\sigma_i(\vec{x_s}) + \frac{1}{4\pi}\int_S\sigma_i(\vec{x_s})\frac{\partial G_i(\vec{x}:\vec{x_s})}{\partial n} = v_{n_i} \quad \text{on}\; S
 \end{equation}
 Here, the subscript $i$ in the equation represents the entities of an individual panel.
-While, calculating influence on a panel because of other source panel, the panel where the potential is being calculated and the source panel becomes the same. Due to this, frequency independant part of the green function tends to go to infinity. This case is known as singularity. To compensate for that influence, $-\frac{1}{2}\sigma$ is added into the equation according to the residual theory.
 
-Eq. ()\ref{eq:dis_integral_eq}) can be rearranged an written as:
+The equation (\ref{eq:dis_integral_eq}) can be re-written as:
 \begin{equation}
     \label{eq:alpha_int_eq}
     -\frac{1}{2}\sigma_i + \frac{1}{2}\sum_{i=1, j=1, i\ne j}^{M}\alpha_{ij}\sigma_i = v_{n_i} \quad \text{for} i = 1, 2, \cdots M
 \end{equation}
-Here, $M$ is the total number of panels and $\alpha$ represents, 
+Where, $\alpha_{ij}$ is : 
 \begin{equation}
     \label{eq:alpha}
     \alpha_{ij} = \frac{1}{2\pi}\int_{\Delta S_i}\frac{\partial G(x, x_s)}{\partial n} \,dS
 \end{equation}
 In physical terms, $\alpha_{ij}$ denotes the velocity induced at the $i^{th}$ panel in the direction normal to the surface by a source distribution of unit strength distributed uniformaly over the $j^{th}$ panel which is the source panel here and $i^{th}$ panel is the influenced panel where the potential is being calculated because of the presence of other source panels.
 
-Now, the eq.(\ref{eq:alpha_int_eq}) can be written in the matrix format as :
+The equation (\ref{eq:alpha_int_eq}) can be written in the matrix format as :
 \begin{equation}
     \label{eq:sigma_alpha}
     [\sigma] = 2[\alpha - I]^{-1}[v_n]
 \end{equation}
-where, $I$ represents the unit matrix. $[\alpha]$ is an $m\times m$ cross matrix where $m$ is the total no. of panels. Using the similar adjustments as done in the eq.(\ref{eq:alpha_int_eq}), eq.(\ref{eq:vel_pot}) can be written as
+where, $I$ represents the unit matrix. $[\alpha]$ is an $M\times M$ cross matrix where $M$ is 
+the total no. of panels. Similarly, (\ref{eq:vel_pot}) can be reduced to : 
 \begin{equation}
     \phi_i = \sum_{j=1}^{m}\beta_{ij}\sigma_{j}
 \end{equation}
-All potentials are computed at the centroid of the panels. Now, the above equation can be written in the matrix form as :
-\begin{equation}
-    \{\phi\} = [\beta]\{\sigma\}
-\end{equation}
-where, $[\beta]$ is the $M\times M$ matrix given by
+where, $[\beta]$ is the $M\times M$ matrix given by :
 \begin{equation}
     \label{eq:beta_eq}
     \beta_{ij} = \frac{1}{4\pi}\int_{\Delta S_j}G(\Vec{x_i}, \vec{x_s}) dS  
 \end{equation}
-Thus, the boundary problem can be solved for the velocity potential on the body surface if the value of the integral of the Green function $G$ and its derivatives $\frac{\partial G}{\partial n}$ are known.
+Now, the above equation can be written in the matrix form as :
+\begin{equation}
+    \{\phi\} = [\beta]\{\sigma\}
+\end{equation}
+
+Threfore, the boundary problem can be solved for the velocity potential on the body surface 
+if the value of the integral of the Green function $G$ and its derivative which is
+$\frac{\partial G}{\partial n}$ are known.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Green's Function}
 \label{sec:green_fun}
-For the calculation of radiation and diffraction potential, an infinite-depth green function is used. This Green function and its numerical solution is explained in \cite{telste1986numerical}. 
-
-This green function assumes source distribution over the submerged surface of the vessel. It relates the unknown source strength to the velocity potential. Here, the green function comprises two parts: one is the frequency-dependent part, and the other is the frequency-dependent part.  The Independent part represents the simple potential and interaction between the body surface and the free surface. On the other hand, the dependent part is to comprise the oscillating potential due to the oscillating source.
-The equation of the Green function is given as 
+For the calculation of radiation and diffraction potential, an infinite-depth green function is 
+used. This Green function and its numerical solution is explained in \cite{telste1986numerical}. 
+This green function assumes source distribution over the submerged surface of the vessel. 
+It relates the unknown source strength to the velocity potential. Here, the green function 
+comprises two parts: one is the frequency-dependent part, and the other is the 
+frequency-dependent part.  The Independent part represents the simple potential 
+and interaction between the body surface and the free surface. On the other hand, 
+the frequency dependent part is to comprise the oscillating potential due to the 
+oscillating source. The equation of the Green function is given as 
 \begin{equation}
     \label{eq:green_eq}
     G(\vec{x}, \vec{x_s}, \omega_e) = \frac{1}{r} + \frac{1}{\acute{r}} + \Tilde{G}(\vec{x}, \vec{x_s}, \omega_e) 
@@ -96,23 +127,34 @@ where,
 \begin{equation}
     r = ||\boldsymbol{x} - \boldsymbol{x_s}|| = \sqrt{(x-x_s)^2+(y-y_s)^2+(z-z_s)^2}
 \end{equation}
-represents the Eucledian distance between the field point $P(x, y, z)$ and source point $Q(x_s, y_s, z_s)$.
+represents the Eucledian distance between the field point $P(x, y, z)$ and source 
+point $Q(x_s, y_s, z_s)$. The frequency used here is the encounter frequency shown in 
+(\ref{eq:omega}).
 
 \begin{equation}
     r' = \sqrt{(x - \xi)^2 + (y - \eta)^2 + (z + \zeta)^2}   
 \end{equation}
-represents the Euclidean distance between the field point $P(x, y, z)$ and point $Q'(\xi, \eta, \zeta)$, which is the image of the source point in the waterplane $z=0$ and $\tilde{G}(\vec{x}, \vec{x_s}, \omega_e)$ represents the frequency domain part of the green function, also refree. Note that the frequency used here is the encounter frequency $\omega_e$, shown in the eq. (\ref{eq:omega})
+represents the Euclidean distance between the field point $P(x, y, z)$ and point 
+$Q'(\xi, \eta, \zeta)$, which is the image of the source point in the waterplane 
+$z=0$ and $\tilde{G}(\vec{x}, \vec{x_s}, \omega_e)$ represents the frequency domain 
+part of the green function, also refree.
 
-Now, substituting eq.(\ref{eq:green_eq}) in the equations (\ref{eq:alpha}) and (\ref{eq:beta_eq}), gives the following equations for $\alpha$ and $\beta$ matrices :
+Now, substituting (\ref{eq:green_eq}) in (\ref{eq:alpha}) and (\ref{eq:beta_eq}), 
+gives the following equations for $\alpha$ and $\beta$ matrices :
+\begin{align}
+    \alpha_{ij} &= -\iint_{\Delta S_i} \frac{\partial}{\partial n}\left(\frac{1}{r}\right) dS 
+    - \frac{1}{2\pi}\iint_{\Delta S_j} \frac{\partial}{\partial n}\left(\frac{1}{r'}\right) dS \\ \nonumber
+    &- \frac{1}{2\pi}\iint_{\Delta S_i} \frac{\partial G(\vec{x}_i, \vec{x}_j, \omega_e) }{\partial n}\,dS
+\end{align}
 
-\begin{equation}
-    \alpha_{ij} = -\iint_{\Delta S_i} \frac{\partial}{\partial n}\left(\frac{1}{r}\right) dS - \frac{1}{2\pi}\iint_{\Delta S_j} \frac{\partial}{\partial n}\left(\frac{1}{r'}\right) dS
-    - \frac{1}{2\pi}\iint_{\Delta S_i} \frac{\partial G}{\partial n}(x_i, x_j, \omega_e) dS
-\end{equation}
-\begin{equation}
-    \beta_{ij} = -\frac{1}{4\pi}\iint_{\Delta S_i}\left(\frac{1}{r}\right) dS - \frac{1}{4\pi}\iint_{\Delta S_i}\left(\frac{1}{r'}dS\right)-\frac{1}{r}\iint_{\Delta S_i} \Tilde{G}(x_i, x_j, \omega_e)dS
-\end{equation}
-Here, $j^{th}$ panel is the source panel and $i_th$ panel represents the feild point where potential is supposed to be calculated. In the above expressions, first two terms are frequency independant and the last term is frequency dependent which can be obtained by solving for the wavy green function.
+\begin{align}
+    \beta_{ij} &= -\frac{1}{4\pi}\iint_{\Delta S_i}\left(\frac{1}{r}\right) dS 
+    - \frac{1}{4\pi}\iint_{\Delta S_i}\left(\frac{1}{r'}dS\right) \\ \nonumber
+    &-\frac{1}{r}\iint_{\Delta S_i} \Tilde{G}(x_i, x_j, \omega_e)dS
+\end{align}
+Here, $j^{th}$ panel is the source panel and $i_th$ panel represents the feild point where 
+potential is supposed to be calculated. In the above expressions, first two terms are 
+frequency independant and the last term is frequency dependent which can be obtained by solving for the wavy green function.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Frequency independent part of Green function}

@@ -58,46 +58,31 @@
 \usepackage{siunitx}
 \usepackage{nomencl}
 
-%%%%%%%%%% to remove chapter {no} %%%%%%%%%%%%
-% \usepackage{titlesec}
-% \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-% \titleformat{\chapter}{}{}{0em}{\bf\Huge}   
-% \titlespacing*{\chapter}{}{-40pt}{40pt}
 
-%%%%%%%%%%%%%%% to remove the space between the table of contents items
+%%%%%%%%%%%%%% to remove the space between the table of contents items
 \usepackage{tocloft}
 \renewcommand{\cfttoctitlefont}{\hspace*{\fill}\Large\bfseries}
 \renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
-\renewcommand{\cftlottitlefont}{\hspace*{\fill}\Large\bfseries}
-\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
-\renewcommand{\cftloftitlefont}{\hspace*{\fill}\Large\bfseries}
-\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
-
-% for todolist needs to remove after finishing thesis
-\usepackage{enumitem,amssymb}
-\newlist{todolist}{itemize}{2}
-\setlist[todolist]{label=$\square$}
-\usepackage{pifont}
-\newcommand{\cmark}{\ding{51}}%
-\newcommand{\xmark}{\ding{55}}%
-\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
-\hspace{-2.5pt}}
-\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
-
-
-% \usepackage{etoolbox}
-% \makeatletter
-% \patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{}
-% \patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%% document begin %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \input{chapters/title_page}
 
 \newpage
+\pagenumbering{roman}
+\input{chapters/certificate}
+
+\newpage
+\input{chapters/abstract}
+
+\newpage
+\input{chapters/aknowledgement.tex}
+
+\newpage
 \tableofcontents
+
+\newpage
+\input{chapters/nomenclature.tex}
 
 \newpage
 \listoftables
@@ -108,18 +93,7 @@
 \addcontentsline{toc}{chapter}{LIST OF FIGURES}
 
 \newpage
-\input{chapters/certificate}
-
-\newpage
-\input{chapters/aknowledgement.tex}
-
-\newpage
-\input{chapters/abstract}
-
-\newpage
-\input{chapters/nomenclature.tex}
-
-\newpage
+\pagenumbering{arabic}
 \input{chapters/introduction}
 
 \newpage
@@ -143,5 +117,6 @@
 \newpage
 \bibliography{reference}
 % \printbibliography
+\addcontentsline{toc}{chapter}{REFERENCE}
 
 \end{document}

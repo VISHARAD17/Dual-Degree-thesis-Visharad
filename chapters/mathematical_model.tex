@@ -1,11 +1,29 @@
 \chapter{MATHEMATICAL MODEL}
-In this project, a ship moving with a steady speed of $U$ in deep water with regular waves of wave amplitude $A$ and incident frequency $w_I$ traveling at an angle $\beta$ with the surge direction of the ship is considered. Potential flow methods are widely used to solve the seakeeping problem. Due to the improvement in the computation power, the three-dimensional boundary element method to compute the wave load can be used.
+In this thesis, a ship moving with a steady speed of $U$ in deep water with regular 
+waves of wave amplitude $A$ and incident frequency $w_I$ traveling at an angle 
+$\beta$ relative to the surge direction of the ship is considered. To address the seakeeping
+problem, potential flow techniques are commonly employed. With the advancements in computing power, 
+it is now possible to use the three-dimensional panel based potential theory method to compute 
+the wave load.
 
 \section{Co-ordinate System}
 
-In order to set up the mathematical model, two coordinate systems are defined; one of them is the Global coordinate system ( GCS ), whose origin is located at a calm water level. The other one is the Body seakeeping coordinate system ( BCS ), whose origin is located at the midship on the intersection of the water line and centerline of the ship. It is further assumed that the $x$-axis of the GCS points towards the east direction, whereas the $x$-axis of BCS points towards the sway direction of the ship. Coordinates of points represented in GCS are expressed as $\boldsymbol{x^e} = (x^e, y^e, z^e)$ wheres for the points in BCS it is expressed as $\boldsymbol{x^s} = (x^s, y^s, z^s)$. Global coordinate system, i.e., GCS, denotes the inertial frame of reference. Body geometry and body parameters, such as the location of the vertical center of gravity and radii of gyration, are defined with respect to BSC.
+In order to set up the mathematical model, two coordinate systems are defined; one of them is the 
+Global coordinate system ( GCS ), whose origin is located at a calm water level. The other one is 
+the Body seakeeping coordinate system ( BCS ), whose origin is located at the midship on the 
+intersection of the water line and centerline of the ship. It is further assumed that the $x$-axis 
+of the GCS points towards the east direction, whereas the $x$-axis of BCS points towards the sway 
+direction of the ship. Coordinates of points represented in GCS are expressed as 
+$\boldsymbol{x^e} = (x^e, y^e, z^e)$ wheres for the points in BCS it is expressed as 
+$\boldsymbol{x^s} = (x^s, y^s, z^s)$. Global coordinate system, i.e., GCS, 
+denotes the inertial frame of reference. Body geometry and body parameters, 
+such as the location of the vertical center of gravity and radii of gyration, 
+are defined with respect to BSC.
 
-The translating frame of reference i.e. BCS allows the formulation of the vessel response in six degrees of freedom due to incident waves and steady current of speed $U$ in $-x$ direction which is equivalent to forward speed with respect to GCS. A linear boundary value problem can be introduced by assuming a small wave amplitude to determine the velocity potential.
+The translating frame of reference, BCS allows the formulation of the vessel response in 
+six degrees of freedom due to incident waves and steady current of speed $U$ in $-x$ direction 
+which is equivalent to forward speed with respect to GCS. By assuming a small wave amplitude, 
+a linear boundary value problem can be established to determine the velocity potential.
 
 
 \section{Velocity potential}
@@ -13,28 +31,53 @@ Assuming that the fluid flow is inviscid, incompressible, and irrotational the t
 \begin{equation}
     \boldsymbol{\Phi} (\vec{x}, t) = [\, -Ux + \phi_P(\vec{x})\,] + [\, \phi_I(\vec{x}, \beta, \omega_I) + \phi_S(\vec{x}, \beta, \omega_I) + \sum_{j=1}^{6}n_j\phi_j(\vec{x}, U, \omega_e) \,]\, e^{i w_e t}
 \end{equation}
-In the above equation, $\omega_I$ denotes the encounter frequency, $\phi_P$ represents the perturbation potential due to steady translation, $\phi_I$ is the incident wave potential, $\phi_S$ is the scattering wave potential, $\phi_j$ and $n_j$ are the radiation wave potential due to unit motion and vessel motion amplitude respectively in $j^{th}$ direction.
-Here, the perturbation potential $\phi_P$ has a relatively insignificant effect on total potential at low to moderate ship speed. Hence, it will be ignored to reduce the complexity of the problem. Hence, the final equation for velocity potential is given as :
+where, 
+\begin{itemize}
+    \item $\omega_I$ is the incident wave frequency.
+    \item $\omega_e$ is the encountering wave frequency.
+    \item $\phi_P(\vec{x})$ is the potential due to the perturbation of steady translation of stream.
+    \item $\phi_I(\vec{x}, \beta, \omega_I)$ is the incident potential due to incident waves.
+    \item $\phi_S(\vec{x}, \beta, \omega_I)$ is the scattering potential due to the reflected 
+    waves from the body.
+    \item $\phi_j(\vec{x}, U, \omega_e)$ is the radiation potential generated due to the
+    motion of body in $j^{th}$ mode of motion.
+\end{itemize}
+In the above equation, the perturbation potential $\phi_P$ has a relatively insignificant 
+effect on total 
+potential at low to moderate ship speed and so it is ignored to reduce the complexity 
+of the problem. Hence, the final equation for velocity potential is given as :
 \begin{equation}
     \label{eq:velocity_potential}
-    \boldsymbol{\Phi} (\vec{x}, t) = -Ux + [\, \phi_I(\vec{x}, \beta, \omega_I) + \phi_S(\vec{x}, \beta, \omega_I) + \sum_{j=1}^{6}n_j\phi_j(\vec{x}, U, \omega_e) \,]\, e^{i w_e t}
+    \boldsymbol{\Phi} (\vec{x}, t) = -Ux + [\, \phi_I(\vec{x}, \beta, \omega_I) + \phi_S(\vec{x}, 
+    \beta, \omega_I) + \sum_{j=1}^{6}n_j\phi_j(\vec{x}, U, \omega_e) \,]\, e^{i w_e t}
 \end{equation}
-In the above equation, $\omega_e$ is the encounter frequency which is expressed in terms of incident or normal wave frequency $\omega_I$ , forward speed $U$, and incident angle $\beta$ as
+In the above equation, $\omega_I$ is the 
+frequency of the wave experienced by the vessel when it is stationary and due to Doppler effect
+$\omega_e$ is the frequency of the wave experienced by the vessel when it is moving with a 
+certain steady velocity, which is expressed in terms of incident or normal wave 
+frequency $\omega_I$ , forward speed $U$, and incident angle $\beta$ as :
 \begin{equation}
     \label{eq:omega}
-    \omega_e = \omega_I - \frac{\omega_I^2}{g}U\cos\beta
+    \omega_e = \omega_I - \frac{\omega_I^2}{g}\,U\cos\beta
 \end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Governing equation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Governing equation}
-The governing equations of the fluid flow are the continuity equation ( conservation of mass ) and the Navier-stokes equation ( conservation of momentum ). Under the assumption of inviscid and irrotational flow, the governing equations reduce to Laplace equations given as :
+The governing equations of the fluid flow are the continuity equation ( conservation of mass ) 
+and the Navier-stokes equation ( conservation of momentum ). Under the assumption of inviscid 
+and irrotational flow, the Navier-stokers equations reduce to Laplace equation given as :
 \begin{equation}
     \label{eq:laplace_eq}
-    \nabla^2 (\phi_I, \phi_D, \phi_j) = 0
+    \nabla^2 \boldsymbol{\Phi} (\vec{x}, t) = 0
 \end{equation}
-where, $\phi_j \, (j = 1,2,\cdots, 6)$ denotes the radiation potential in all 6-modes of motion. This equation is valid over the entire fluid domain.
 
 \section{Boundary Conditions}
 \label{sec:Boundary condition}
-In addition to the governing equation, the velocity potential satisfies the boundary conditions over the fluid boundaries. The total boundary surface $S$ comprises the free surface $S_F$, mean body surface $S_B$, bottom surface $S_Z$, and the radiation surface $S_\infty$ bounding the horizontal infinite fluid domain. The surfaces are shown in Fig. \ref{fig:boundary_surfaces} below.
+In addition to the governing equation, the velocity potential satisfies the boundary 
+conditions over the fluid boundaries. The total boundary surface $S$ comprises the 
+free surface $S_F$, mean body surface $S_B$, bottom surface $S_Z$, and the radiation surface
+ $S_\infty$ bounding the horizontal infinite fluid domain. The surfaces are shown in 
+ Fig. \ref{fig:boundary_surfaces} below.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.65\textwidth]{photos/boundary_surfaces.png}
@@ -52,7 +95,8 @@ The boundary conditions to be satisfied by the potential functions are shown bel
     \end{equation}
     
     \item[2.] \underline{Dynamic free surface boundary condition} : 
-    The pressure obtained using Bernoulli's equations on the free surface is constant.
+    The pressure on the free surface is constand and is obtained by the application of Bernoulli's 
+    equation over the free surface.
     \begin{equation}
         \label{eq:dyn_free_surface_cond}
         \left[\left(i\omega_e - u\frac{\partial}{\partial x}\right) + g\frac{\partial}{\partial z}\right](\phi_I, \phi_D, \phi_j) = 0 \quad \text{on} \; z = 0
@@ -86,5 +130,7 @@ The boundary conditions to be satisfied by the potential functions are shown bel
 \end{itemize}
 
  Here, $\omega_I$ represents the incident wave frequency, not the encounter frequency.
-This forward speed boundary value problem can be solved using potential theory using infinite depth free surface green function. 
-
+This forward speed boundary value problem can be solved using potential theory using 
+infinite depth free surface green function. In general, free surface and body boundary conditions 
+are non-linear and hence an exact solution is not possible. However, since the governing equation
+is linear its solutions can be obtained by using perturbation approach.
