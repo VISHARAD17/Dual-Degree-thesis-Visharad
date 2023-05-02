@@ -38,7 +38,6 @@
     }
 \usepackage{indentfirst} % for indenting the start of the paragraph
 \usepackage{natbib} % for bibliography
-
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{svg}
@@ -48,7 +47,6 @@
 \usepackage{ltablex} 
 \usepackage{color}
 \usepackage{framed}
-% \usepackage{afterpage}
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{geometry} % Page settings\usepackage{capt-of}
@@ -63,6 +61,10 @@
 \usepackage{tocloft}
 \renewcommand{\cfttoctitlefont}{\hspace*{\fill}\Large\bfseries}
 \renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+\renewcommand{\cftlottitlefont}{\hspace*{\fill}\Large\bfseries}
+\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
+\renewcommand{\cftloftitlefont}{\hspace*{\fill}\Large\bfseries}
+\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%% document begin %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -116,7 +118,6 @@
 
 \newpage
 \bibliography{reference}
-% \printbibliography
 \addcontentsline{toc}{chapter}{REFERENCE}
 
 \end{document}

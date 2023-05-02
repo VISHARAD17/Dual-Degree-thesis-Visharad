@@ -1,7 +1,7 @@
 \chapter{FORCES and MOTIONS}
 \section{Wave Potentials}
 Once the $[\alpha]$ matrix is computed using the expressions derived in the previous sections. Using
-the eq.(\ref{eq:sigma_alpha}) we can solve for unknown source strength $\sigma$. Here, normal velocity
+the (\ref{eq:sigma_alpha}) we can solve for unknown source strength $\sigma$. Here, normal velocity
 vector $\{v_n\}$ matrix will be different for radiation and scattering potentials. It is computed by applying 
 the boundary conditions given in the section(\ref{sec:Boundary condition}). For $\{v_n\}$ related to
 scattering problem requires incident potential given by 
@@ -13,9 +13,9 @@ Note that, all the potentials are computed at the centroid of the panels. After 
 boundary conditions for radiation and scattering problem unknown source strength can be calculated for the 
 respective potentials / problems.
 
-Once, the $[\beta]$ matrix is computed using the green function explained in sec.(\ref{sec:green_fun}), combining 
-it with respective source strength of radiation and scattering problems,using the eq.(\ref{eq:vel_pot})
-respective potentials can be computed.
+Once, the $[\beta]$ matrix is computed using the green function explained in section (\ref{sec:green_fun}), 
+combining it with respective source strength of radiation and scattering problems, using 
+(\ref{eq:vel_pot}) respective potentials can be computed.
 
 $\phi_D$ is used to denote scattering potential and $\phi_k (k=1, 2, \cdots, 6)$ is used to denote the 
 radiation potential in all 6-degrees of freedom. According to \cite{salvesen1970ship} for radiation potential $\phi_k$ 
@@ -72,14 +72,17 @@ Note, that Added mass $A_{jk}$ and Radiation damping $B_{jk}$ are real valued. A
 the added mass or radiation damping in $j^{th}$ mode of motion due to the body oscillation along the 
 $k^{th}$ direction.
 \subsection{Forward speed RAO}
-For a regular incident wave of unit amplitute the steady state motion will also sinusoidal and the steady 
-state amplitute $\{\xi\}$ is governed by :
+For a regular incident wave of unit amplitute the steady state motion  $\{\xi\} = \xi_a e^{\omega t}$
+is governed by :
 \begin{align}
     -\omega^2[M + A]\{\xi\} + i\omega[B]\{\xi\} + [C]\{\xi\} = \{F\}
 \end{align}
 
-where $[M]$ represents the mass matrix, $[A]$ represents the added mass matrix, $[B]$ denotes the radiation damping matrix, $[C]$ denotes the stiffness matrix, $\{F\}$ denotes the external force vector and $\{\xi\}$ denotes the vector of steady state displacement amplitude. The response amplitude operator $\{\xi\}$ is a $6N_b \times 1$ vector given by
-
+where $[M]$ is the mass matrix, $[A]$ is the added mass matrix, 
+$[B]$ denotes the radiation damping matrix, $[C]$ denotes the stiffness matrix, 
+$\{F\}$ denotes the external force vector which is Exciting force ( Froude Kerlov force + Scattering force) 
+and $\{\xi_a\}$ denotes the amplitude of steady state motion. 
+Hence, the response amplitude operator {\bf RAO} is given by $\{\xi\}$ 
 \begin{align}
-    \{\xi\} = \left(-\omega^2[M + A] + i\omega[B] + [C]\right)^{-1} \{F\}
+    \{\xi\} = \frac{\left(-\omega^2[M + A] + i\omega[B] + [C]\right)} {\{F\}}
 \end{align}

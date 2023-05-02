@@ -96,10 +96,9 @@ Relative wave elevation is the distance between the wave surface and the instant
 relative wave elevation, first absolute wave elevation needs to be calculated along the waterline. The waterline is obtained 
 by extracting the edges of the panels which are at the water surface. According to the dynamic free surface boundary 
 condition the pressure at free surface is zero ( guage pressure ) i.e. at $\zeta=0$, $p=0$. Hence, 
-\begin{align}
-    p &= 0 \quad \text{at} \quad z=\zeta \\ \nonumber
-    \rho g \zeta + \rho\frac{\partial \phi}{\partial t} - \rho U \frac{\partial \phi}{\partial x} &=0 \quad \text{on} \quad z=\zeta 
-\end{align}
+\begin{equation}
+    \rho g \zeta + \rho\frac{\partial \phi}{\partial t} - \rho U \frac{\partial \phi}{\partial x} =0 \quad \text{on} \quad z=\zeta 
+\end{equation}
 Therefore the above equation yeilds :
 \begin{equation}
     \zeta^{(1)} = -\frac{1}{g}\left(i\omega_e \phi_T - U\frac{\partial \phi_T}{\partial x}\right) e^{i\,\omega_e\,t}
