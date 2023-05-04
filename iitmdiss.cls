@@ -71,9 +71,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Geometry and page layout
 \RequirePackage[%compat2,
-a4paper,left=1.2in,right=1.2in,top=1.2in,bottom=1.2in,
+a4paper,left=1.4in,right=1.4in,top=1.2in,bottom=1in,
                 nohead]{geometry}[2002/07/08]
-\parskip 10pt
+                % a4paper,left=1.5in,right=1.5in,top=1in,bottom=0.667in,
+                % nohead]{geometry}[2002/07/08]
+
+                \parskip 10pt
 
 \renewcommand{\@pnumwidth}{2.5em}
 %\renewcommand{\@tocrmarg}{2.5em}
@@ -84,7 +87,7 @@ a4paper,left=1.2in,right=1.2in,top=1.2in,bottom=1.2in,
 %% makes all tables and figures have single spacing automatically.
 \RequirePackage{setspace} 
 \RequirePackage{atbeginend} % used to redefine the list environs
-\setstretch{1.3}
+\setstretch{1.5}
 
 
 \BeforeBegin{itemize}{\vspace*{-5ex}\begin{singlespace}}
@@ -92,6 +95,13 @@ a4paper,left=1.2in,right=1.2in,top=1.2in,bottom=1.2in,
 
 \BeforeBegin{enumerate}{\vspace*{-5ex}\begin{singlespace}}
 \AfterEnd{enumerate}{\end{singlespace}}
+
+\AtBeginDocument{%
+    \addtocontents {toc} {~                                             \hfill {\bfseries Page}\par}
+    \addtocontents {lof} {{\bfseries Figure} \hfill {\bfseries Caption} \hfill {\bfseries Page}\par}
+    \addtocontents {lot} {{\bfseries Table}  \hfill {\bfseries Caption} \hfill {\bfseries Page}\par}
+    \graphicspath{{images/}}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% The figure captioning is done correctly via the hang option.

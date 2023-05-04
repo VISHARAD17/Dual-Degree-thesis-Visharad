@@ -1,17 +1,22 @@
 \chapter{RESULTS AND DISCUSSION}
-The outputs of the program are compared against the output of the software MDLHydroD. The devlopment of the 
+The outputs of  {\bf HydRA} program are compared against the output of the \newline 
+software MDLHydroD. The development of the 
 MDLHydroD software is explained in \cite{guha2013development} and \cite{guha2015estimation}.
-For comparison KCS and KVLCC2 vessels are considered. 
+For comparison KCS and KVLCC2 vessels' hull structure is used. 
 
-\section{KCS Vessel}
+\section{Forward speed comparisons for KCS Vessel}
 KCS ( Krisco container ship ) is a fine form container ship and its particulars are listed in Table 
 \ref{tab:kcs_principal_particulars}. 
 For comparison, frequencies are used from
-$-0.03$ with $+0.03$ increment, in totoal $34$ frequencies are used. Ship's speed is $8\,\si{m.s^{-1}}$. Incident angles used 
+$-0.03$ with $+0.03$ increment and in totoal $34$ frequencies are used. Ship's speed is $8\,\si{m.s^{-1}}$. 
+Incident angles used 
 ranges from $0^{\circ}$ to $345^{\circ}$ with $15^{\circ}$ increment. Simulation is ran for 6 modes of motion.  
-The comparison of added mass for different angles are shown in figure \ref{fig:kcs_addedmass_1} and figure \ref{fig:kcs_addedmass_1}.
-Comparisons of radiation damping is shown in figure 2. Comparisons of Froude Krylov force is shown in figure 2.
-Comparisons of Scattering force is shown in figure 2. Comparisons of RAO is shown in figure 2.
+The comparison of added mass for different angles are shown in figure \ref{fig:kcs_addedmass_1}.
+Comparisons of radiation damping is shown in figure \ref{fig:radition_damp_125}. 
+Comparisons of Froude Krylov force is shown in figure \ref{fig:kcs_froude_krylov}.
+Comparisons of Scattering force is shown in figure \ref{fig:kcs_scattering_135}. 
+Comparisons of RAO is shown in figure \ref{fig:kcs_rao_120}
+and figure \ref{fig:kcs_rao_135}
 
 \begin{table}[h]
     \centering
@@ -235,8 +240,20 @@ Comparisons of Scattering force is shown in figure 2. Comparisons of RAO is show
 
 
 \newpage
-\section{KVLCC Vessel}
-Input parameters for KVLCC2 are given in the following table \ref{tab:kvlcc2_particulars}.
+\section{Forward speed comparisons for KVLCC Vessel}
+Principle perticulars for KVLCC2 (Oil tanker) are given in the table \ref{tab:kvlcc2_particulars}.
+For comparison, frequencies are used from
+$-0.03$ with $+0.03$ increment and in totoal $34$ frequencies are used. Ship's speed is $8\,\si{m.s^{-1}}$. 
+Incident angles used 
+ranges from $0^{\circ}$ to $345^{\circ}$ with $15^{\circ}$ increment. Simulation is ran for all 6 modes of motion.  
+The comparison of added mass for different angles are shown in figure \ref{fig:kvlcc_addedmass}.
+Comparisons of radiation damping is shown in figure \ref{fig:kvlcc_radition_damp_105}. 
+Comparisons of Froude Krylov force is shown in figure \ref{fig:kvlcc_froude_krylov}.
+Comparisons of Scattering force is shown in figure \ref{fig:kvlcc_scattering}. 
+Comparisons of RAO is shown in figure \ref{fig:kcs_rao_120}
+and figure \ref{fig:kvlcc_rao_135}
+\\[1.5cm]
+
 \begin{table}[h]
     \centering{%
     \setlength{\tabcolsep}{10pt} % Default value: 6pt
@@ -289,7 +306,7 @@ Input parameters for KVLCC2 are given in the following table \ref{tab:kvlcc2_par
         \includegraphics[width=\textwidth]{plots/kvlcc/added_mass/a66.png}
         \caption{$A_{22} \, \beta = 120^{\circ}$}
     \end{subfigure}
-    \caption{KCS vessel added mass comparison for degree $\beta=120^{\circ}$}
+    \caption{KCS vessel added mass comparison for $\beta=120^{\circ}$}
     \label{fig:kvlcc_addedmass}
 \end{figure}
 
@@ -322,7 +339,7 @@ Input parameters for KVLCC2 are given in the following table \ref{tab:kvlcc2_par
         \includegraphics[width=\textwidth]{plots/kvlcc/radiation_damp/b66.png}
         \caption{$B_{66} \, \beta = 105^{\circ}$}
     \end{subfigure}
-    \caption{KVLCC2 vessel radiation damping comparison for degree $\beta= 105^{\circ}$}
+    \caption{KVLCC2 vessel radiation damping comparison for $\beta= 105^{\circ}$}
     \label{fig:kvlcc_radition_damp_105}
 \end{figure}
 
@@ -355,7 +372,7 @@ Input parameters for KVLCC2 are given in the following table \ref{tab:kvlcc2_par
         \includegraphics[width=\textwidth]{plots/kvlcc/fk/fk6.png}
         \caption{$Fk \, \beta = 150^{\circ}$}
     \end{subfigure}
-    \caption{KVLCC2 vessel froude krylov force comparison for degree $\beta= 150^{\circ}$}
+    \caption{KVLCC2 vessel froude krylov force comparison for $\beta= 150^{\circ}$}
     \label{fig:kvlcc_froude_krylov}
 \end{figure}
 
@@ -388,7 +405,7 @@ Input parameters for KVLCC2 are given in the following table \ref{tab:kvlcc2_par
         \includegraphics[width=\textwidth]{plots/kvlcc/sc/sc6.png}
         \caption{Yaw ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
-    \caption{KVLCC2 vessel Scattering force comparison for degree $\beta= 135^{\circ}$}
+    \caption{KVLCC2 vessel Scattering force comparison for $\beta= 135^{\circ}$}
     \label{fig:kvlcc_scattering}
 \end{figure}
 \subsection{RAO}
@@ -420,7 +437,7 @@ Input parameters for KVLCC2 are given in the following table \ref{tab:kvlcc2_par
         \includegraphics[width=\textwidth]{plots/kcs/rao/rao6.png}
         \caption{Yaw RAO $\beta = 120^{\circ}$}
     \end{subfigure}
-    \caption{KCS vessel RAO comparison for degree $\beta = 120^{\circ}$}
+    \caption{KCS vessel RAO comparison for $\beta = 120^{\circ}$}
     \label{fig:kvlcc_rao_120}
 \end{figure}
 \begin{figure}[H]
@@ -451,6 +468,57 @@ Input parameters for KVLCC2 are given in the following table \ref{tab:kvlcc2_par
         \includegraphics[width=\textwidth]{plots/kcs/rao2/rao6.png}
         \caption{Yaw RAO $\beta = 135^{\circ}$}
     \end{subfigure}
-    \caption{KVLCC vessel RAO comparison for degree $\beta= 135^{\circ}$}
+    \caption{KVLCC vessel RAO comparison for $\beta= 135^{\circ}$}
     \label{fig:kvlcc_rao_135}
+\end{figure}
+
+\newpage
+\section{Drift force comparisons}
+\label{sec:drift_frc}
+Generally, in resistance prediction methods, the influence of the hull emergence 
+angle is often disregarded or ignored. While far-field methods are believed to be 
+unaffected by minor variations in the hull shape, near-field methods factor 
+in the relative wave amplitude across the waterline to calculate the added 
+resistance. Effect of hull emergence is explained in detail in \cite{guha2015effect}.
+  After, incorporating the effect of hull emergence angle the actual 
+value of Mean drift force is found lessor. This effect is shown in the below 
+comparisons with WAMIT6. WAMIT6 does not consider hull emergence angle. Comparisons are done for 
+KCS vessel, whose principal parameters are give in table (\ref{tab:kcs_principal_particulars}). 
+The input parameters are same as used for forward speed comparisons.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_1.png}
+        \caption{Surge drift force $\beta = 135^{\circ}$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_2.png}
+        \caption{Sway drift force $\beta = 135^{\circ}$}
+    \end{subfigure}
+    \vspace{5pt}%
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_3.png}
+        \caption{Heave drift force $\beta = 135^{\circ}$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_4.png}
+        \caption{Roll drift force $\beta = 135^{\circ}$}
+    \end{subfigure}
+    \vspace{5pt}%
+    \caption{KCS vessel Drift force-I comparison for $\beta= 135^{\circ}$}
+    \label{fig:kcs_drift_135_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_5.png}
+        \caption{Pitch drift force $\beta = 135^{\circ}$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_6.png}
+        \caption{Yaw drift force $\beta = 135^{\circ}$}
+    \end{subfigure}
+    \caption{KCS vessel Drift force-II comparison for $\beta= 135^{\circ}$}
+    \label{fig:kcs_drift_135_2}
 \end{figure}

@@ -18,6 +18,10 @@ forward speed in regular waves using 3D panel based potential theory. Far field 
 method introduced by \cite{boese1970einfache} uses direct hydrodynamic pressure integration over the wetted surface and 
 is based on 3D panel based potential theory.
 
+Lastly, comparisons between MDLhydroD and WAMIT6 is shown in the results section (\ref{sec:drift_frc}).
+MDLHydroD considers the effect of hull emergence angle, hence the drift force is considerly
+less compared to WAMIT6.
+
 \section{Pertubation Expansions}
 \label{sec:perturbation_exp}
 Perturbation theory is used to obtain the approximation solution upto a certain accuracy. Solution or quantity is 
@@ -71,18 +75,25 @@ of interest using a small parameter $\epsilon$ of the order of the wave slope, a
 \subsection{Pressure derivation}
 The pressure using Bernoullis equation is given as:
 \begin{equation}
+    \label{eq:pressure}
     p = \frac{1}{2}\rho\,U^2 - \rho\,\frac{\partial \phi_T}{\partial t} - \frac{1}{2}\rho |\nabla\phi_T|-\rho\,g\,z^2
 \end{equation} 
 After substituting the above expression in eq.(\ref{eq:per_perssure}), pressure quatities with respect 
 to different orders of $\epsilon$ are given as 
 \begin{equation}
+    \label{eq:pressure_zero}
     p^{(0)} = - \rho g(z_B + z_0)
 \end{equation}
 where, $(\vec{X_0}) = (X_0, Y_0, Z_0)$ is the location of body coordinate system origin with respect to the global 
-coordinate system and $\vec{x_B}=(x_B, y_B, z_B)$ the location of the point where the quantiy is begin computed in the body coordinate
+coordinate system and $\vec{x_B}=(x_B, y_B, z_B)$ the location of the point where the quantity is being computed in the body coordinate
 system.
-First order expression for pressure is given as:
+First and second order expression for pressure is given as:
 \begin{align}
+    \label{eq:pressure_first}
+    p^{(1)} &= -\rho g z^{(1)} - \rho\frac{\partial \phi^{(1)}}{\partial t} +
+    +\rho U\frac{\partial \phi^{(1)}}{\partial x}
+    \\ \nonumber \\
+    \label{eq:pressure_second}
     P^{(2)} &= -\rho\frac{\partial \phi^{(2)}}{\partial t} + \rho\,U\frac{\partial \phi^{(2)}}{\partial x} -\frac{\rho}{2}
     \left\{\left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2 + \left(\frac{\partial \phi^{(1)}}{\partial y}\right)^2 + 
     \left(\frac{\partial \phi^{(1)}}{\partial z}\right)^2\right\} \\ \nonumber
@@ -95,34 +106,40 @@ their derivatives are calculated at mean position.
 Relative wave elevation is the distance between the wave surface and the instantaneous waterline. To calculate the
 relative wave elevation, first absolute wave elevation needs to be calculated along the waterline. The waterline is obtained 
 by extracting the edges of the panels which are at the water surface. According to the dynamic free surface boundary 
-condition the pressure at free surface is zero ( guage pressure ) i.e. at $\zeta=0$, $p=0$. Hence, 
+condition the pressure at free surface is zero ( gauge pressure ) i.e. at $\zeta=0$, $p=0$. Hence, 
 \begin{equation}
     \rho g \zeta + \rho\frac{\partial \phi}{\partial t} - \rho U \frac{\partial \phi}{\partial x} =0 \quad \text{on} \quad z=\zeta 
 \end{equation}
-Therefore the above equation yeilds :
+Therefore the above equation yields :
 \begin{equation}
     \zeta^{(1)} = -\frac{1}{g}\left(i\omega_e \phi_T - U\frac{\partial \phi_T}{\partial x}\right) e^{i\,\omega_e\,t}
 \end{equation}
 The relative wave elevation is  then obtained by subtracting the total movement of the body in $z$-direction from the
 absolute wave elevation.
 \begin{equation}
+    \label{eq:rel_wave_ele}
     \zeta^{(1)}_r =\zeta^{(1)} - (\eta_3 - \eta_5x + \eta_4y)
 \end{equation}
 where, $(x, y)$ are the centroid of the waterline panels or the waterline element.
 
 
 \subsection{Forces and moments}
-The hydrodynamic force is given as 
-\begin{equation}
-    F_H = -\int_S P\,n_j\,ds \quad \quad j=1, 2,\cdots, 6
-\end{equation}
-Using the perturbation expansions, equations for force can be written as
+Hydrodynamic force is obtained by integrating the pressure over the wetter surface
+or submerged surface of the vessel. Now, hydrodynamic force and moment is 
+given by is given as 
+\begin{align}
+    \boldsymbol{\vec{F}} &= -\int_S P\,\hat{n_j}\,ds \quad \quad j=1, 2,\cdots, 6 \\
+    \boldsymbol{\vec{M}} &= -\int_S P\,(\vec{x}\times \hat{n_j})\,dS
+\end{align}
+Using the perturbation expansions till second degree, equations for force can 
+be written as
 \begin{equation}
     \label{eq:per_force}
-    \vec{F} = -\left(\int_{S_0}ds+\int_{wl}\zeta_r dl\right)(p^{(0)} + \epsilon p^{(1)} +
+    \boldsymbol{\vec{F}} = -\left(\int_{S_0}ds+\int_{wl}\zeta_r dl\right)(p^{(0)} + \epsilon p^{(1)} +
     \epsilon^2 p^{(2)}) (\vec{n}^{(0)}+\epsilon(\vec{\theta}^{(0)} \times \vec{n}^{(0)})+\epsilon^2H\vec{n}^{(0)})
 \end{equation} 
-The waterline integral arises due to the condideration of the first order wetted surface 
+
+The waterline integral arises due to the consideration of the first order wetted surface 
 area $S_1$ which is the additional instantaneous surface of the hull below water considering 
 both wave elevation and the motion of the body.
 \begin{equation}
@@ -130,12 +147,39 @@ both wave elevation and the motion of the body.
 \end{equation}
 
 Here, $wl$ is the waterline of the ship, $\zeta_r$ is the relative wave elevation and $dz/\sqrt{1-n^2_3}$ is the inclined height for 
-non-wall sided surface. Now, after expanding the above equation and separating the terms with 
-$\epsilon$, $\epsilon^1$ and $\epsilon^2$ gives the zeroth, first and second order force respectively.
-Now, after substituting relative wave elevation in the eq(\ref{eq:per_force}) and extracting terms corresponding
-to $\epsilon^2$, second order force can be obtained whose equation is given below :
+non-wall sided surface. In the equation (\ref{eq:per_force}), matrix $H$ represents 
+the second order rotation matrix given as:
+\begin{equation}
+    H = \begin{bmatrix}
+        -\frac{1}{2}(\eta_5^2+\eta_6^2) & 0 & 0\\
+        \eta_4\eta_5 & -\frac{1}{2}(\eta_4^2+\eta_6^2) & 0\\
+        \eta_4\eta_6 & \eta_5\eta_6 & -\frac{1}{2}(\eta_4^2+\eta_5^2)
+        \end{bmatrix}
+\end{equation} 
+
+Expanding \ref{eq:per_force} and separating the terms with 
+$\epsilon$, $\epsilon^1$ and $\epsilon^2$ gives the zeroth, first and second 
+order force respectively. 
+\begin{align}
+    \label{eq:force_zero}
+    \boldsymbol{F}^{(0)} &= -\int_{S_0}p^{(0)}\vec{n}^{(0)} ds \\
+    \label{eq:force_first}
+    \boldsymbol{F}^{(1)} &= -\int_{S_0} p^{(0)}(\vec{\theta}^{(1)}\times \vec{n}^{0}) ds 
+    -\int_{S_0}p^{(1)}\vec{n}^{(0)}ds -\int_{wl}\zeta_r^{(1)}p^{(0)}\vec{n}^{(0)}dl \\
+    \label{eq:force_second}
+    \boldsymbol{F}^{(2)} &= -\int_{S_0}p^{(0)}(H\,\vec{n}^{0}) ds -\int_{S_0}p^{(1)}(\vec{\theta}^{(1)}
+    \times \vec{n}^{(0)})ds - \int_{S_0}p^{(2)}\vec{n}^{(0)}ds \\ \nonumber
+    &-\int_{wl}\zeta_r^{(1)}(\vec{\theta}^{(1)}\times \vec{n}^{(0)}) dl 
+    -\int_{wl}\zeta_r^{(1)}p^{(1)}\vec{n}^{(0)}dl -\int_{wl}\zeta_r^{(2)}p^{(0)}\vec{n}^{(0)}dl
+\end{align}
+\newpage
+Now, substituting relative wave elevation (\ref{eq:rel_wave_ele})
+and pressure equations which are (\ref{eq:pressure}), (\ref{eq:pressure_first})
+in (\ref{eq:force_second}) and extracting terms corresponding
+to $\epsilon^2$, zeroth, first and second order force can be obtained 
+whose equations are given below :
 \begin{align}     
-    F &= -\int_{wl}\frac{1}{2}\rho g (\zeta_r^{(1)})^2 \frac{\vec{\eta}^{(0)}}{\sqrt{1-\eta_3^2}} dl + 
+    \boldsymbol{\vec{F}}^{(2)} &= -\int_{wl}\frac{1}{2}\rho g (\zeta_r^{(1)})^2 \frac{\vec{\eta}^{(0)}}{\sqrt{1-\eta_3^2}} dl + 
     \int_{S_0}\rho\left(\frac{\partial \phi^{(2)}}{\partial t} - U\frac{\partial \phi^{(2)}}{\partial x}\right)\vec{\eta}^{(0)}ds \\ \nonumber
     &+ \int_{S_0} \frac{\rho}{2}\left\{\left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2 + \left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2
     + \left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2\right\}\vec{\eta}^{(0)} \,ds \\ \nonumber
@@ -153,7 +197,7 @@ to $\epsilon^2$, second order force can be obtained whose equation is given belo
 
 Similarly, the second order moment can be given as :
 \begin{align}
-    \vec{M}^{(2)} &= -\int_{wl}\frac{1}{2}\rho g (\zeta_r^{(1)})^2 (x_B\times \vec{n}^{(0)}) dl \\ \nonumber
+    \boldsymbol{\vec{M}}^{(2)} &= -\int_{wl}\frac{1}{2}\rho g (\zeta_r^{(1)})^2 (x_B\times \vec{n}^{(0)}) dl \\ \nonumber
     &+\rho\int_{S_0}\left(\frac{\partial \phi^{(2)}}{\partial t} - U\frac{\partial \phi^{(2)}}{\partial x}\right)
     (\vec{x_B}\times\vec{n}^{(0)})\,ds \\ \nonumber
     &+\frac{\rho}{2}\int_{S_0}\left\{\left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2

@@ -2,8 +2,15 @@
 
 A new numerical web-based frequency domain tool is developed to compute hydrodynamic force 
 and motions with low to moderate forward speed. The effect of forward speed was implemented by 
-chaanging normal incident frequencies with the encounter frequencies as incident frequencies
+changing normal incident frequencies with the encounter frequencies as incident frequencies
 changes as the object moves according to the Doppler effect. Also, the boundary conditions were also
 changes where forward speed terms and encountering frequencies were used to define them. Thus, the 
 results obtained then were compared against MDLHydroD softwares results. For comparison KCS and KVLCC2
-vessels' hull structures were used. Results shows good agreement in both the software.
+vessels' hull structures were used. Results show good agreement with the MDLHydroD software.
+Drift force are computed using the perturbation theory. All the terms of interest for drift force are 
+written using a small perturbation parameter till the second degree. After, substituting these terms 
+in the integral equations of force and moment. The terms corresponding to second degree of perturbation 
+parameter are taken to get the second order force and moment. Comparisons of drift force is done 
+between MDLHydroD and WAMIT6. Since, MDLHydroD also implements the effect of hull emergence angle, hence
+the value of drift force is less for some mode of motions as compared to WAMIT6. 
+ 
