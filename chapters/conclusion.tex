@@ -1,16 +1,35 @@
 \chapter{CONCLUSION}
 
-A new numerical web-based frequency domain tool is developed to compute hydrodynamic force 
-and motions with low to moderate forward speed. The effect of forward speed was implemented by 
-changing normal incident frequencies with the encounter frequencies as incident frequencies
-changes as the object moves according to the Doppler effect. Also, the boundary conditions were also
-changes where forward speed terms and encountering frequencies were used to define them. Thus, the 
-results obtained then were compared against MDLHydroD softwares results. For comparison KCS and KVLCC2
-vessels' hull structures were used. Results show good agreement with the MDLHydroD software.
-Drift force are computed using the perturbation theory. All the terms of interest for drift force are 
-written using a small perturbation parameter till the second degree. After, substituting these terms 
-in the integral equations of force and moment. The terms corresponding to second degree of perturbation 
-parameter are taken to get the second order force and moment. Comparisons of drift force is done 
-between MDLHydroD and WAMIT6. Since, MDLHydroD also implements the effect of hull emergence angle, hence
-the value of drift force is less for some mode of motions as compared to WAMIT6. 
- 
+% A new numerical web-based frequency domain tool is developed to compute hydrodynamic force 
+% and motions with low to moderate forward speed. The effect of forward speed was implemented by 
+% changing normal incident frequencies with the encounter frequencies as incident frequencies
+% changes as the object moves according to the Doppler effect. Also, the boundary conditions were also
+% changes where forward speed terms and encountering frequencies were used to define them. Thus, the 
+% results obtained then were compared against MDLHydroD softwares results. For comparison KCS and KVLCC2
+% vessels' hull structures were used. Results show good agreement with the MDLHydroD software.
+% Drift force are computed using the perturbation theory. All the terms of interest for drift force are 
+% written using a small perturbation parameter till the second degree. After, substituting these terms 
+% in the integral equations of force and moment. The terms corresponding to second degree of perturbation 
+% parameter are taken to get the second order force and moment. Comparisons of drift force is done 
+% between MDLHydroD and WAMIT6. Since, MDLHydroD also implements the effect of hull emergence angle, hence
+% the value of drift force is less for some mode of motions as compared to WAMIT6. 
+
+
+A new numerical tool is developed using a web-based frequency domain approach 
+for calculating hydrodynamic forces and motions at low to moderate forward speeds.
+To account for the effect of forward speed, incident frequencies were adjusted to 
+encounter frequencies using the Doppler effect. Additionally, boundary conditions are 
+modified by incorporating forward speed $U$ and encounter frequencies. The accuracy 
+of the proposed method was verified by comparing the results against those obtained 
+from the MDLHydroD software for the KCS and KVLCC2 vessel hull structures. While programming,
+the code is implemented in such a way that the simulation can be performed for both 
+single body case and multiple body case, which is an advantage over MDLHydroD.
+The computed drift forces are determined using perturbation theory, and the second-order 
+force and moment terms were obtained by considering perturbation parameter terms up to the 
+second degree. A comparison of the drift force between MDLHydroD and WAMIT6 is also performed, 
+where it is found that the value of drift force is lower for some modes of motion in 
+MDLHydroD due to its implementation of hull emergence angle. The results of this 
+study demonstrate good agreement with the MDLHydroD software and provide valuable insights 
+into the hydrodynamic forces and motions of vessels at low to moderate forward speeds. However, 
+due to time constraints code for the drift force part is not implemented in the HydRA program. 
+In the thesis, drift force theory alone is explained.

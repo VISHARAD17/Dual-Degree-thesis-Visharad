@@ -9,7 +9,7 @@ second order terms which are these mean forces is also very small. But when the 
 these second order mean forces become important. These forces are proportional to swuare of the wave height 
 while the 
 first order are proportional to the wave height. Primarily, mean drift forces are computed using two menthods:
-(a) far feild method and (b) near field method.
+(a) far field method and (b) near field method.
 
 This chapter deals with the mean drift force and moments acting on a stationary vessel in regular waves. This chapter
 presents the complete derivation of the second order force on an arbitrary shaped body moving with a steady 
@@ -19,22 +19,23 @@ method introduced by \cite{boese1970einfache} uses direct hydrodynamic pressure 
 is based on 3D panel based potential theory.
 
 Lastly, comparisons between MDLhydroD and WAMIT6 is shown in the results section (\ref{sec:drift_frc}).
-MDLHydroD considers the effect of hull emergence angle, hence the drift force is considerly
-less compared to WAMIT6.
+MDLHydroD considers the effect of hull emergence angle, hence the drift force is considerably
+less compared to WAMIT6. Due to time constraints, the code was not implemented into the HydRA
+program. Comparisons of different software alone is done.
 
-\section{Pertubation Expansions}
+\section{Perturbation Expansions}
 \label{sec:perturbation_exp}
 Perturbation theory is used to obtain the approximation solution upto a certain accuracy. Solution or quantity is 
-expressed as a power series using a small paramater known as perturbation parameter. perturbation expression
-starts with an avarage solution.
+expressed as a power series using a small parameter known as perturbation parameter. Perturbation expressions
+start with an average solution.
 For example, 
 \begin{equation}
     A = A_0 + \epsilon A_1 + \epsilon^2 A_2 + \cdots
 \end{equation}
-where, $\epsilon$ is the perturbation paramter and $A_0$ is the avarage solution of $A$.
+where, $\epsilon$ is the perturbation parameter and $A_0$ is the average solution of $A$.
 
-Now, Assuming small amplitute motion oscillations about mean position of the body, approximations can be obtain 
-up to second order with respect to the wave amplitute. Perturbation expressions of quantities 
+Now, Assuming small amplitude motion oscillations about mean position of the body, approximations can be obtain 
+up to second order with respect to the wave amplitude. Perturbation expressions of quantities 
 of interest using a small parameter $\epsilon$ of the order of the wave slope, are given below :
 
 \begin{itemize}
@@ -78,8 +79,8 @@ The pressure using Bernoullis equation is given as:
     \label{eq:pressure}
     p = \frac{1}{2}\rho\,U^2 - \rho\,\frac{\partial \phi_T}{\partial t} - \frac{1}{2}\rho |\nabla\phi_T|-\rho\,g\,z^2
 \end{equation} 
-After substituting the above expression in eq.(\ref{eq:per_perssure}), pressure quatities with respect 
-to different orders of $\epsilon$ are given as 
+After substituting the above expression in (\ref{eq:per_perssure}), pressure quantities with respect 
+to zeroth order of $\epsilon$ are given as 
 \begin{equation}
     \label{eq:pressure_zero}
     p^{(0)} = - \rho g(z_B + z_0)
@@ -146,7 +147,8 @@ both wave elevation and the motion of the body.
     \int_{S_1}\cdots ds = \int_{wl} dl \int_{0}^{\zeta_r}\cdots \frac{dz}{\sqrt{1-n^2_3}}
 \end{equation}
 
-Here, $wl$ is the waterline of the ship, $\zeta_r$ is the relative wave elevation and $dz/\sqrt{1-n^2_3}$ is the inclined height for 
+Here, $wl$ is the waterline of the ship, $\zeta_r$ is the relative wave elevation and
+according to \cite{guha2015effect}, $dz/\sqrt{1-n^2_3}$ is the inclined height for 
 non-wall sided surface. In the equation (\ref{eq:per_force}), matrix $H$ represents 
 the second order rotation matrix given as:
 \begin{equation}
@@ -157,7 +159,7 @@ the second order rotation matrix given as:
         \end{bmatrix}
 \end{equation} 
 
-Expanding \ref{eq:per_force} and separating the terms with 
+Expanding (\ref{eq:per_force}) and separating the terms corresponding to 
 $\epsilon$, $\epsilon^1$ and $\epsilon^2$ gives the zeroth, first and second 
 order force respectively. 
 \begin{align}
@@ -176,16 +178,16 @@ order force respectively.
 Now, substituting relative wave elevation (\ref{eq:rel_wave_ele})
 and pressure equations which are (\ref{eq:pressure}), (\ref{eq:pressure_first})
 in (\ref{eq:force_second}) and extracting terms corresponding
-to $\epsilon^2$, zeroth, first and second order force can be obtained 
-whose equations are given below :
+to $\epsilon^2$ second order force can be obtained 
+whose equation is given below :
 \begin{align}     
-    \boldsymbol{\vec{F}}^{(2)} &= -\int_{wl}\frac{1}{2}\rho g (\zeta_r^{(1)})^2 \frac{\vec{\eta}^{(0)}}{\sqrt{1-\eta_3^2}} dl + 
-    \int_{S_0}\rho\left(\frac{\partial \phi^{(2)}}{\partial t} - U\frac{\partial \phi^{(2)}}{\partial x}\right)\vec{\eta}^{(0)}ds \\ \nonumber
+    \boldsymbol{\vec{F}}^{(2)} &= -\int_{wl}\frac{1}{2}\rho g (\zeta_r^{(1)})^2 \frac{\vec{n}^{(0)}}{\sqrt{1-n_3^2}} dl + 
+    \int_{S_0}\rho\left(\frac{\partial \phi^{(2)}}{\partial t} - U\frac{\partial \phi^{(2)}}{\partial x}\right)\vec{n}^{(0)}ds \\ \nonumber
     &+ \int_{S_0} \frac{\rho}{2}\left\{\left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2 + \left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2
-    + \left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2\right\}\vec{\eta}^{(0)} \,ds \\ \nonumber
+    + \left(\frac{\partial \phi^{(1)}}{\partial x}\right)^2\right\}\vec{n}^{(0)} \,ds \\ \nonumber
     &+\int_{S_0}i\omega_e\rho\left\{(\eta_1-\eta_6y_B+\eta_5z_B)\frac{\partial \phi^{(1)}}{\partial x} \right. \\ \nonumber
     &\left. +(\eta_2+\eta_6x_B-\eta_4z_B)\frac{\partial \phi^{(1)}}{\partial y} + (\eta_3-\eta_5x_B+\eta_4y_B)
-    \frac{\partial \phi^{(1)}}{\partial z}\right\}\vec{\eta}^{(0)} \,ds \\ \nonumber
+    \frac{\partial \phi^{(1)}}{\partial z}\right\}\vec{n}^{(0)} \,ds \\ \nonumber
     &- \rho g A^{(0)}\left[\eta_4 \eta_6 x_{B,f} + \eta_5\eta_6 y_{B,f} + \frac{1}{2}(\eta_4^2+\eta_5^2)Z_0\right]\hat{k} \\ \nonumber
     &-\omega^2_e\{-\eta_2\eta_6m + \eta_4\eta_6m z_g -\eta_6\eta_6 m x_g + \eta_3 \eta_5 m + \eta_4\eta_5y_g
     - \eta_5\eta_5 m x_g\} \hat{i} \\ \nonumber
@@ -229,7 +231,3 @@ Similarly, the second order moment can be given as :
     -\eta_4\eta_6 Z_0V^{(0)}\right]\hat{j} \\ \nonumber
     &+\rho g V^{(0)}(\eta_1\eta_4+\eta_2\eta_5+\eta_5\eta_6x_{CB}-\eta_4\eta_6y_{CB})\hat{k}
 \end{align}
-
-added mass 
-RAOS - random angles - 90-270 and one angle all 6
-added mass , radiation damping, exciting force - one angle all 6

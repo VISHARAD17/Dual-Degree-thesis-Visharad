@@ -42,7 +42,7 @@ of the second kind :
     -\frac{1}{2}\sigma(\vec{x_s}) + \frac{1}{4\pi}\int_S\sigma(\vec{x_s})\frac{\partial G(\vec{x}:\vec{x_s})}{\partial n} = v_n \quad \text{on}\; S
 \end{equation}
 Here, $\frac{\partial G}{\partial n}$ denotes the derivative of the Green function in the outward normal direction. This normal derivative of $G$ can be 
-evaluated using its partial dervitives in $x$, $y$ and $z$ as :
+evaluated using its partial derivatives in $x$, $y$ and $z$ as :
 \begin{equation}
     \frac{\partial G}{\partial n} = \frac{\partial G}{\partial x}n_x + \frac{\partial G}{\partial y}n_y + \frac{\partial G}{\partial z}n_z
 \end{equation}
@@ -53,13 +53,13 @@ evaluated using its partial dervitives in $x$, $y$ and $z$ as :
 % \end{equation}
 Now, while calculating influence on a panel because of other source panel, the panel where the 
 potential is being calculated and the source panel becomes the same. Due to this, frequency 
-independant part of the green function tends to go to infinity. This case is known as 
+independent part of the green function tends to go to infinity. This case is known as 
 singularity. To compensate for that influence, $-\frac{1}{2}\sigma$ is added into the 
 equation according to the residual theory.
 
 
 
-\section{Numerical Discretization}
+\section{Numerical discretization}
 \label{sec:numerical_dis}
 To solve (\ref{eq:integral_eq}), the body surface is discretized into $M$ panels of area 
 $\Delta S_m$ where $m = (1, 2, \cdots, M)$. Every entity presented here is computed at the centroid of the panel.
@@ -108,7 +108,7 @@ Threfore, the boundary problem can be solved for the velocity potential on the b
 if the value of the integral of the Green function $G$ and its derivative which is
 $\frac{\partial G}{\partial n}$ are known.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Green's Function}
+\section{Green's function}
 \label{sec:green_fun}
 For the calculation of radiation and diffraction potential, an infinite-depth green function is 
 used. This Green function and its numerical solution is explained in \cite{telste1986numerical}. 
@@ -137,7 +137,7 @@ point $Q(x_s, y_s, z_s)$. The frequency used here is the encounter frequency sho
 represents the Euclidean distance between the field point $P(x, y, z)$ and point 
 $Q'(\xi, \eta, \zeta)$, which is the image of the source point in the waterplane 
 $z=0$ and $\tilde{G}(\vec{x}, \vec{x_s}, \omega_e)$ represents the frequency domain 
-part of the green function, also refree.
+part of the green function.
 
 Now, substituting (\ref{eq:green_eq}) in (\ref{eq:alpha}) and (\ref{eq:beta_eq}), 
 gives the following equations for $\alpha$ and $\beta$ matrices :
@@ -155,14 +155,14 @@ gives the following equations for $\alpha$ and $\beta$ matrices :
 \end{align}
 Here, $j^{th}$ panel is the source panel and $i^{th}$ panel is the feild point where 
 potential is being calculated. In the above expressions, first two terms are 
-frequency independant and the last term is frequency dependent which can be obtained by
+frequency independent and the last term is frequency dependent which can be obtained by
 solving for the wavy green function.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Frequency independent part of Green function}
-The frequency independant part of the $[\alpha]$ matrix can be computed analytically using 
+The frequency independent part of the $[\alpha]$ matrix can be computed analytically using 
 the expressions provided by \cite{hess1964calculation}. 
-Similarly, the frequency independant terms of $[\beta]$ matrix can be evaluated using the 
+Similarly, the frequency independent terms of $[\beta]$ matrix can be evaluated using the 
 expressions given by \cite{katz2001low}. Normal derivatives can be expressed as sum of 
 dot products of normal unit vectors and the partial derivatives in $x$, $y$ 
 and $z$ directions. Hence, 
@@ -174,10 +174,10 @@ and $z$ directions. Hence,
     &+ n_z \iint_{\Delta S_j}\frac{\partial}{\partial z}\left(\frac{1}{r}\right) dS
 \end{align}
 Above integration is performed over the source panel $\Delta S_j$ and $n_x$, $n_y$, $n_z$ are the 
-unit normal components of the feild panels. The integral is evaluated in local co-ordinate system 
+unit normal components of the field panels. The integral is evaluated in local co-ordinate system 
 with its origin at centroid. The coordinates of the source panel's 4 vertices are 
 $A(x_1, y_1, 0)$, $B(x_2, y_2, 0)$, $C(x_3, y_3, 0)$ and $D(x_4, y_4, 0)$, which are in BCS coordinate system. 
-Here, only $x$ and $y$ co-ordinates of the panel vertices are considered.Hence, according 
+Here, only $x$ and $y$ co-ordinates of the panel vertices are considered. Hence, according 
 to \cite{hess1964calculation} equations for the partial derivatives 
 required to compute the normal derivative (\ref{eq:one_by_r_comp}) are given below :
 
@@ -301,5 +301,5 @@ using the numerical method suggested by \cite{telste1986numerical}.
 Once, the potentials are computed pressure can be obtained on each panel.
 Through integration of pressure throughout the submerged surface forces can be evaluated. 
 Using radiation potentials added mass and radiation damping can be computed. 
-After, obtaining all these coeffecients and using them motion equation can be solved to get the RAOs.
+After, obtaining all these coefficients and using them motion equation can be solved to get the RAOs.
 Steps to compute these forces and motion are explained in detail in the next section.

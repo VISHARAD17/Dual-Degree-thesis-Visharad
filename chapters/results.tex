@@ -1,16 +1,17 @@
 \chapter{RESULTS AND DISCUSSION}
-The outputs of  {\bf HydRA} program are compared against the output of the \newline 
-software MDLHydroD. The development of the 
-MDLHydroD software is explained in \cite{guha2013development} and \cite{guha2015estimation}.
-For comparison KCS and KVLCC2 vessels' hull structure is used. 
+The outputs of developed program {\bf HydRA} are compared against the outputs of the
+software MDLHydroD. For comparison KCS and KVLCC2 vessels' hull structure is used. 
 
 \section{Forward speed comparisons for KCS Vessel}
 KCS ( Krisco container ship ) is a fine form container ship and its particulars are listed in Table 
 \ref{tab:kcs_principal_particulars}. 
 For comparison, frequencies are used from
-$-0.03$ with $+0.03$ increment and in totoal $34$ frequencies are used. Ship's speed is $8\,\si{m.s^{-1}}$. 
+$-0.03$ with $+0.03$ increment and in total $34$ frequencies are used. Here, -ve frequency is 
+used to simulate the effect of infinite frequency case and while plotting the comparisons
+zero and -ve frequencies are ignored.
+Ship's speed is $8\,\si{m.s^{-1}}$. 
 Incident angles used 
-ranges from $0^{\circ}$ to $345^{\circ}$ with $15^{\circ}$ increment. Simulation is ran for 6 modes of motion.  
+ranges from $0^{\circ}$ to $345^{\circ}$ with $15^{\circ}$ increment. Simulation was ran for 6 modes of motion.  
 The comparison of added mass for different angles are shown in figure \ref{fig:kcs_addedmass_1}.
 Comparisons of radiation damping is shown in figure \ref{fig:radition_damp_125}. 
 Comparisons of Froude Krylov force is shown in figure \ref{fig:kcs_froude_krylov}.
@@ -22,6 +23,7 @@ and figure \ref{fig:kcs_rao_135}
     \centering
     \setlength{\tabcolsep}{10pt} % Default value: 6pt
     \renewcommand{\arraystretch}{1.17} % Default value: 1
+    \caption{$\text{KCS principal particulars}$}
     \begin{tabular}{|c|c|}
         \hline
         {\bf Main Particulars} & {\bf Value} \\
@@ -36,205 +38,204 @@ and figure \ref{fig:kcs_rao_135}
         LCB (\% of $L$ from midship, forward +ve) & -1.48\% \\
         \hline
     \end{tabular}
-    \caption{$\text{KCS principal particulars}$}
     \label{tab:kcs_principal_particulars}
 \end{table}
 
 
-\subsection{Added Mass}
+\subsection{Added mass}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/added_mass_deg=120/a11.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/added_mass/a11.png}
         \caption{$A_{22} \, \beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/added_mass_deg=120/a22.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/added_mass/a22.png}
         \caption{$A_{22} \, \beta = 120^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/added_mass_deg=120/a33.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/added_mass/a33.png}
         \caption{$A_{11}\, \beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/added_mass_deg=120/a44.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/added_mass/a44.png}
         \caption{$A_{22} \, \beta = 120^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/added_mass_deg=120/a55.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/added_mass/a55.png}
         \caption{$A_{22} \, \beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/added_mass_deg=120/a66.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/added_mass/a66.png}
         \caption{$A_{22} \, \beta = 120^{\circ}$}
     \end{subfigure}
-    \caption{KCS vessel added mass comparison for degree $\beta=120^{\circ}$}
+    \caption{KCS vessel added mass comparison for $\beta=120^{\circ}$}
     \label{fig:kcs_addedmass_1}
 \end{figure}
 
-\subsection{Radiation Damping}
+\subsection{Radiation damping}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rad_damp_deg_120/b11.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/rad_damp/b11.png}
         \caption{$B_{11} \, \beta = 105^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rad_damp_deg_120/b22.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/rad_damp/b22.png}
         \caption{$B_{22} \, \beta = 105^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rad_damp_deg_120/b33.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/rad_damp/b33.png}
         \caption{$B_{33}\, \beta = 105^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rad_damp_deg_120/b44.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/rad_damp/b44.png}
         \caption{$B_{44} \, \beta = 105^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rad_damp_deg_120/b55.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/rad_damp/b55.png}
         \caption{$B_{55} \, \beta = 105^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rad_damp_deg_120/b66.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/rad_damp/b66.png}
         \caption{$B_{66} \, \beta = 105^{\circ}$}
     \end{subfigure}
-    \caption{KCS vessel radiation damping comparison for degree $\beta= 105^{\circ}$}
+    \caption{KCS vessel radiation damping comparison for $\beta= 105^{\circ}$}
     \label{fig:radition_damp_125}
 \end{figure}
 
 \subsection{Froude Krylov Force}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/fk/fk1.png}
         \caption{Surge FkFrc $\beta = 150^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/fk/fk2.png}
         \caption{Sway FkFrc $\beta = 150^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/fk/fk3.png}
         \caption{Heave FkFrc $\beta = 150^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/fk/fk4.png}
-        \caption{Roll FkFrc $\beta = 105^{\circ}$}
+        \caption{Roll FkFrc $\beta = 150^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/fk/fk5.png}
-        \caption{Pitch FkFrc $\beta = 105^{\circ}$}
+        \caption{Pitch FkFrc $\beta = 150^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/fk/fk6.png}
-        \caption{Yaw FkFrc $\beta = 105^{\circ}$}
+        \caption{Yaw FkFrc $\beta = 150^{\circ}$}
     \end{subfigure}
-    \caption{KCS vessel froude krylov force comparison for degree $\beta= 105^{\circ}$}
+    \caption{KCS vessel froude krylov force comparison for $\beta= 150^{\circ}$}
     \label{fig:kcs_froude_krylov}
 \end{figure}
 
 \subsection{Scattering Force}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/sc/sc1.png}
         \caption{Surge ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/sc/sc2.png}
         \caption{Sway ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/sc/sc3.png}
         \caption{Heave ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/sc/sc4.png}
-        \caption{Roll ScFrc $\beta = 105^{\circ}$}
+        \caption{Roll ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/sc/sc5.png}
-        \caption{Pitch ScFrc $\beta = 105^{\circ}$}
+        \caption{Pitch ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/sc/sc6.png}
-        \caption{Yaw ScFrc $\beta = 105^{\circ}$}
+        \caption{Yaw ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
-    \caption{KCS vessel Scattering force comparison for degree $\beta= 135^{\circ}$}
+    \caption{KCS vessel Scattering force comparison for $\beta= 135^{\circ}$}
     \label{fig:kcs_scattering_135}
 \end{figure}
 
 \subsection{RAO}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao/rao1.png}
         \caption{Surge RAO $\beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao/rao2.png}
         \caption{Sway RAO $\beta = 120^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao/rao3.png}
         \caption{Heave RAO $\beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao/rao4.png}
         \caption{Roll RAO $\beta = 120^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao/rao5.png}
         \caption{Pitch RAO $\beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao/rao6.png}
         \caption{Yaw RAO $\beta = 120^{\circ}$}
     \end{subfigure}
-    \caption{KCS vessel RAO comparison for degree $\beta= 120^{\circ}$}
+    \caption{KCS vessel RAO comparison for $\beta= 120^{\circ}$}
     \label{fig:kcs_rao_120}
 \end{figure}
 \newpage
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao2/rao1.png}
         \caption{Surge RAO $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao2/rao2.png}
         \caption{Sway RAO $\beta = 135^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao2/rao3.png}
         \caption{Heave RAO $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao2/rao4.png}
         \caption{Roll RAO $\beta = 135^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao2/rao5.png}
         \caption{Pitch RAO $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kcs/rao2/rao6.png}
         \caption{Yaw RAO $\beta = 135^{\circ}$}
     \end{subfigure}
-    \caption{KCS vessel RAO comparison for degree $\beta= 135^{\circ}$}
+    \caption{KCS vessel RAO comparison for $\beta= 135^{\circ}$}
     \label{fig:kcs_rao_135}
 \end{figure}
 
@@ -243,7 +244,10 @@ and figure \ref{fig:kcs_rao_135}
 \section{Forward speed comparisons for KVLCC Vessel}
 Principle perticulars for KVLCC2 (Oil tanker) are given in the table \ref{tab:kvlcc2_particulars}.
 For comparison, frequencies are used from
-$-0.03$ with $+0.03$ increment and in totoal $34$ frequencies are used. Ship's speed is $8\,\si{m.s^{-1}}$. 
+$-0.03$ with $+0.03$ increment and in total $34$ frequencies are used. Here, -ve frequency is 
+used to simulate the effect of infinite frequency case and while plotting the comparisons
+zero and -ve frequencies are ignored.
+Ship's speed is $8\,\si{m.s^{-1}}$. 
 Incident angles used 
 ranges from $0^{\circ}$ to $345^{\circ}$ with $15^{\circ}$ increment. Simulation is ran for all 6 modes of motion.  
 The comparison of added mass for different angles are shown in figure \ref{fig:kvlcc_addedmass}.
@@ -258,6 +262,7 @@ and figure \ref{fig:kvlcc_rao_135}
     \centering{%
     \setlength{\tabcolsep}{10pt} % Default value: 6pt
     \renewcommand{\arraystretch}{1.17} % Default value: 1
+    \caption{$\text{KVLCC2 principal particulars}$}
     \begin{tabular}{{|c|c|}}
     \hline
     Main Particulars & Value\\
@@ -270,72 +275,70 @@ and figure \ref{fig:kvlcc_rao_135}
     Radius of Gyration $R_{zz}/L$ & 0.25 \\
     Metacentric height $GM ~(m)$ & 5.71 \\
     LCB (\% of $L$ from midship, forward +ve) & 3.48\% \\
-    Forward speed & 8.00 $\si{ms^{-1}}$ \\
     \hline
     \end{tabular}
     }
-    \caption{$\text{KVLCC2 principal particulars}$}
     \label{tab:kvlcc2_particulars}
 \end{table}
-\subsection{Added Mass}
+\subsection{Added mass}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/added_mass/a11.png}
         \caption{$A_{22} \, \beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/added_mass/a22.png}
         \caption{$A_{22} \, \beta = 120^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/added_mass/a33.png}
         \caption{$A_{11}\, \beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/added_mass/a44.png}
         \caption{$A_{22} \, \beta = 120^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/added_mass/a55.png}
         \caption{$A_{22} \, \beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/added_mass/a66.png}
         \caption{$A_{22} \, \beta = 120^{\circ}$}
     \end{subfigure}
-    \caption{KCS vessel added mass comparison for $\beta=120^{\circ}$}
+    \caption{KVLCC2 vessel added mass comparison for $\beta=120^{\circ}$}
     \label{fig:kvlcc_addedmass}
 \end{figure}
 
-\subsection{Radiation Damping}
+\subsection{Radiation damping}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/radiation_damp/b11.png}
         \caption{$B_{11} \, \beta = 105^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/radiation_damp/b22.png}
         \caption{$B_{22} \, \beta = 105^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/radiation_damp/b33.png}
         \caption{$B_{33}\, \beta = 105^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/radiation_damp/b44.png}
         \caption{$B_{44} \, \beta = 105^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/radiation_damp/b55.png}
         \caption{$B_{55} \, \beta = 105^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/radiation_damp/b66.png}
         \caption{$B_{66} \, \beta = 105^{\circ}$}
     \end{subfigure}
@@ -343,32 +346,32 @@ and figure \ref{fig:kvlcc_rao_135}
     \label{fig:kvlcc_radition_damp_105}
 \end{figure}
 
-\subsection{Froude Krylov Force}
+\subsection{Froude krylov force}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/fk/fk1.png}
         \caption{$Fk \, \beta = 150^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/fk/fk2.png}
         \caption{$Fk \, \beta = 150^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/fk/fk3.png}
         \caption{$Fk \, \beta = 150^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/fk/fk4.png}
         \caption{$Fk \, \beta = 150^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/fk/fk5.png}
         \caption{$Fk \, \beta = 150^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/fk/fk6.png}
         \caption{$Fk \, \beta = 150^{\circ}$}
     \end{subfigure}
@@ -376,32 +379,32 @@ and figure \ref{fig:kvlcc_rao_135}
     \label{fig:kvlcc_froude_krylov}
 \end{figure}
 
-\subsection{Scattering Force}
+\subsection{Scattering force}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/sc/sc1.png}
         \caption{Surge ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/sc/sc2.png}
         \caption{Sway ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/sc/sc3.png}
         \caption{Heave ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/sc/sc4.png}
         \caption{Roll ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/sc/sc5.png}
         \caption{Pitch ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{plots/kvlcc/sc/sc6.png}
         \caption{Yaw ScFrc $\beta = 135^{\circ}$}
     \end{subfigure}
@@ -411,30 +414,30 @@ and figure \ref{fig:kvlcc_rao_135}
 \subsection{RAO}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao/rao1.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao/rao1.png}
         \caption{Surge RAO $\beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao/rao2.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao/rao2.png}
         \caption{Sway RAO $\beta = 120^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao/rao3.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao/rao3.png}
         \caption{Heave RAO $\beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao/rao4.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao/rao4.png}
         \caption{Roll RAO $\beta = 120^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao/rao5.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao/rao5.png}
         \caption{Pitch RAO $\beta = 120^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao/rao6.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao/rao6.png}
         \caption{Yaw RAO $\beta = 120^{\circ}$}
     \end{subfigure}
     \caption{KCS vessel RAO comparison for $\beta = 120^{\circ}$}
@@ -442,30 +445,30 @@ and figure \ref{fig:kvlcc_rao_135}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao2/rao1.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao2/rao1.png}
         \caption{Surge RAO $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao2/rao2.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao2/rao2.png}
         \caption{Sway RAO $\beta = 135^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao2/rao3.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao2/rao3.png}
         \caption{Heave RAO $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao2/rao4.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao2/rao4.png}
         \caption{Roll RAO $\beta = 135^{\circ}$}
     \end{subfigure}
     \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao2/rao5.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao2/rao5.png}
         \caption{Pitch RAO $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/rao2/rao6.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kvlcc/rao2/rao6.png}
         \caption{Yaw RAO $\beta = 135^{\circ}$}
     \end{subfigure}
     \caption{KVLCC vessel RAO comparison for $\beta= 135^{\circ}$}
@@ -487,36 +490,35 @@ KCS vessel, whose principal parameters are give in table (\ref{tab:kcs_principal
 The input parameters are same as used for forward speed comparisons.
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_1.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_9MODE_1.png}
         \caption{Surge drift force $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_2.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_9MODE_2.png}
         \caption{Sway drift force $\beta = 135^{\circ}$}
     \end{subfigure}
-    \vspace{5pt}%
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_3.png}
+    \\[0.5cm]
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_9MODE_3.png}
         \caption{Heave drift force $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_4.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_9MODE_4.png}
         \caption{Roll drift force $\beta = 135^{\circ}$}
     \end{subfigure}
-    \vspace{5pt}%
     \caption{KCS vessel Drift force-I comparison for $\beta= 135^{\circ}$}
     \label{fig:kcs_drift_135_1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_5.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_9MODE_5.png}
         \caption{Pitch drift force $\beta = 135^{\circ}$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_12MODE_6.png}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{plots/kcs/drift/DrtFrc_9MODE_6.png}
         \caption{Yaw drift force $\beta = 135^{\circ}$}
     \end{subfigure}
     \caption{KCS vessel Drift force-II comparison for $\beta= 135^{\circ}$}

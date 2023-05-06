@@ -8,24 +8,21 @@ the wave load.
 
 \section{Co-ordinate System}
 
-In order to set up the mathematical model, two coordinate systems are defined; one of them is the 
-Global coordinate system ( GCS ), whose origin is located at a calm water level. The other one is 
-the Body seakeeping coordinate system ( BCS ), whose origin is located at the midship on the 
+In order to set up the mathematical model, two co-ordinate systems are defined; one of them is the 
+Global co-ordinate system ( GCS ), whose origin is located at a calm water level. The other one is 
+the Body seakeeping co-ordinate system ( BCS ), whose origin is located at the mid-ship on the 
 intersection of the water line and centerline of the ship. It is further assumed that the $x$-axis 
 of the GCS points towards the east direction, whereas the $x$-axis of BCS points towards the sway 
-direction of the ship. Coordinates of points represented in GCS are expressed as 
-$\boldsymbol{x^e} = (x^e, y^e, z^e)$ wheres for the points in BCS it is expressed as 
-$\boldsymbol{x^s} = (x^s, y^s, z^s)$. Global coordinate system, i.e., GCS, 
+direction of the ship. Co-ordinates of points represented in GCS are expressed as 
+$\boldsymbol{x^e} = (x^e, y^e, z^e)$ whereas for the points in BCS it is expressed as 
+$\boldsymbol{x^s} = (x^s, y^s, z^s)$. Global co-ordinate system, i.e., GCS, 
 denotes the inertial frame of reference. Body geometry and body parameters, 
 such as the location of the vertical center of gravity and radii of gyration, 
 are defined with respect to BSC.
-
 The translating frame of reference, BCS allows the formulation of the vessel response in 
 six degrees of freedom due to incident waves and steady current of speed $U$ in $-x$ direction 
 which is equivalent to forward speed with respect to GCS. By assuming a small wave amplitude, 
 a linear boundary value problem can be established to determine the velocity potential.
-
-
 \section{Velocity potential}
 Assuming that the fluid flow is inviscid, incompressible, and irrotational the total velocity potential at any point inside the fluid domain is given as :
 \begin{equation}
@@ -53,8 +50,8 @@ of the problem. Hence, the final equation for velocity potential is given as :
 \end{equation}
 In the above equation, $\omega_I$ is the 
 frequency of the wave experienced by the vessel when it is stationary. According,
-to the Doppler effect the actual frequency experienced by a body with stedy speed is different 
-than the incident frequency of the source. Hence, in this problem, $\omega_e$ is the frequency of 
+to the Doppler effect the actual frequency experienced by a body with steady speed is different 
+from the incident frequency of the source. Hence, in this problem, $\omega_e$ is the frequency of 
 the wave experienced by the vessel when it is moving with a 
 certain steady speed $U$, which is expressed in terms of incident or normal wave 
 frequency $\omega_I$ , forward speed $U$, and incident angle $\beta$ as :
@@ -73,7 +70,7 @@ and irrotational flow, the Navier-stokers equations reduce to Laplace equation g
     \nabla^2 \boldsymbol{\Phi} (\vec{x}, t) = 0
 \end{equation}
 
-\section{Boundary Conditions}
+\section{Boundary conditions}
 \label{sec:Boundary condition}
 In addition to the governing equation, the velocity potential satisfies the boundary 
 conditions over the fluid boundaries. The total boundary surface $S$ comprises the 
@@ -97,7 +94,7 @@ The boundary conditions to be satisfied by the potential functions are shown bel
     \end{equation}
     
     \item[2.] \underline{Dynamic free surface boundary condition} : 
-    The pressure on the free surface is constand and is obtained by the application of Bernoulli's 
+    The pressure on the free surface is constant and is obtained by the application of Bernoulli's 
     equation over the free surface.
     \begin{equation}
         \label{eq:dyn_free_surface_cond}
@@ -112,7 +109,7 @@ The boundary conditions to be satisfied by the potential functions are shown bel
     \end{equation}
     
     % \newpage
-    \item[4.] \underline{Bottom Boundary condition} :
+    \item[4.] \underline{Bottom boundary condition} :
     The normal velocity of the fluid at the bottom boundary is equal to the normal velocity of the boundary. For an impenetrable seabed in deep water, the normal velocity is zero, and the boundary condition is given by 
     \begin{equation}
         \frac{\partial \phi}{\partial z} = 0 \quad \text{over the bottom}\; z = -\infty

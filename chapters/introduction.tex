@@ -2,23 +2,22 @@
 
 %%%%%%%%%%%%%%%%%%%%% Objective %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objective}
-This Dual Degree project aims to acheive two primary goals. The first objective is to calculate 
+This Dual Degree project aims to achieve two primary goals. The first objective is to calculate 
 the motion characteristics and forces on a floating structure traveling at a low to moderate 
-forward speed in regular waves for the {\bf HydRA}. This computation is done by utilizing a 3D 
+forward speed in regular waves for the frequency domain hydrodynamic analysis tool {\bf HydRA}. This computation is done by utilizing a 3D 
 panel-based potential theory method that involves using an infinite-depth green function. 
-The second main objective is to compute the second-order forces i.e. Mean drift force. 
+The second objective is to compute the second-order forces i.e. mean drift force. 
 The implementation is done by keeping in mind that this method can be used for single body case 
 as well as for multibody case. Also, then the program's output is validated against 
 the MDLHydroD software.
 
 The thesis is structured in the following manner. The first chapter includes an introduction, 
-the objectives of the project, the background and motivation, and a literature review of the 
-research paper utilized in this project. The second chapter provides an explanation of the 
+the objectives of the project, the background and motivation, and a literature review. The second chapter provides an explanation of the 
 mathematical problem setup and derivation. Chapter 3 illustrates the solution to the numerical 
 mathematical problem. Chapter 4, elaborates on the calculation of wave 
-forces and motions. Likewise, Chapter 5 clarifies 
+forces and motions. Likewise, Chapter 5 describes 
 the computation of drift force. In the last chapter, the project outcomes are compared with 
-other software tools such as MDLHydroD and Ansys AQWA.
+other software tools such as MDLHydroD and WAMIT6.
 
 
 %%%%%%%%%%%%%%%%% Background and Motivation %%%%%%%%%%%%%%%%%%%%%%
@@ -28,10 +27,11 @@ environmental loads. The issue of sea-keeping involves the computation of hydrod
 parameters and forces acting on a floating structure when it is in waves. To solve the 
 problem of wave-body interaction, hydrodynamic forces are calculated using numerical 
 methods and potential theory. These calculations can then be used to compute the RAOs 
+(response amplitude operator)
 of different types of vessels.
 
-Hydrodynamic analysis software can help naval architectures optimize and enhance the design of 
-vessels in regular waves. It can provide insights into the vessel's performance in various 
+Hydrodynamic analysis software can help naval architects optimize and enhance the design of 
+vessels in regular waves. It can provide insights into vessel's performance in various 
 wave conditions, 
 allowing designers to make informed decisions about the shape and size of the vessel. 
 Moreover, it saves costs by reducing the need for expensive physical testing.
@@ -45,8 +45,9 @@ RAO, radiation damping, and Added Mass for a vessel in zero and non-zero speed s
 Also, the implementation of drift forces captures the effect of second-order forces in 
 the deep sea. The main idea behind building an in-house web application is to have a 
 solid foundation for a hydrodynamic analysis tool that can be further improved and 
-extended toward more complex problems. The main reference theses used for this project 
-are \citet{guha2015estimation}, and \cite{guha2012development}.
+extended toward more complex problems. The work outlined in the thesis 
+closely adheres to the study presented in \citet{guha2015estimation} 
+and \cite{guha2012development}.
 
 %%%%%%%%%%%%%%%%%%%%%% Literature review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Literature review}
@@ -104,7 +105,7 @@ The second order forces are better known by their physical effects on a floating
 body as the added resistance or the mean drift forces
 Second order forces become important when wave induced motions are large. 
 Primarily, mean drift forces are computed using two menthods:
-(a) far feild method and (b) near field method. 
+(a) far field method and (b) near field method. 
 
 Far field method was introduced by \cite{maruo1957excess} which is based on diffracted and radiated
 wave energy and momentum flux at infinity.
@@ -114,14 +115,14 @@ resistance or mean drift force on the ship due to wave-induced effects. The stud
 resistance is proportional to the square of the wave amplitude and frequency, which is 
 consistent with the second-order wave theory.
 
-Near feild method was introduced by \cite{boese1970einfache} which is based on direct integration of 
-pressure on submerged surface inshort uses potential theory.
+Near field method was introduced by \cite{boese1970einfache} which is based on direct integration of 
+pressure on submerged surface in short uses potential theory.
 This paper, describes a simple method for calculating the increase in resistance of a ship in waves. 
 The method involves calculating the wave drag of the ship at zero speed and then using a 
 correction factor to account for the effect of waves on the ship's resistance.
 
 \cite{faltinsen1980prediction},  \cite{pinkster1980low} talks about the derivation of the equations 
-for Mean drift forces. And also about the second order wave theroy. 
+for mean drift forces and also about the second order wave theory. 
 \cite{faltinsen1980prediction} presents a method to predict the added resistance or drift force 
 and propulsion of a ship in a seaway. 
 The method is based on the potential theory and takes into account the 
@@ -135,7 +136,7 @@ reliable and practical approach to predicting ship performance in a seaway.
 effect on the motions and loads of floating structures and should be considered in the 
 design of offshore structure.
 
-This project documents the development of added feature i.e. to able to perform analysis 
-with the effect of forward speed for simple single body case as well as for complex multibody
-case for the "HydRA" tool begin developed in the Reaserch guild group at IIT Madras. In addition to 
-that theory about drift force and its solution is also disccued. 
+This project documents the development of added feature i.e. to be able to perform analysis 
+with the effect of forward speed for simple single body case as well as for complex multi-body
+case for the "HydRA" tool being developed in the research guild group at IIT Madras. In addition to 
+that theory about drift force and its solution is also discussed. 
