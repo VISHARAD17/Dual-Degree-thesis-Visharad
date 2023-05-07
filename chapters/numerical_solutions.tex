@@ -2,7 +2,7 @@
 The complex potential on the submerged surface of the vessel is the key to solving the hydrodynamic problem. 
 Once the potential is known, all the hydrodynamic coefficients required 
 to obtain all the vessel response, i.e., added mass, damping, excitation forces and 
-response ampliture operator (RAO) can be calculated.
+response amplitude operator (RAO) can be calculated.
 
 The boundary value problem described in (\ref{eq:kin_free_surface_cond}) to 
 (\ref{eq:radiation_boundary})  will be solved by a boundary element method. 
@@ -20,7 +20,7 @@ terms of the surface distribution of sources.
     \phi(\vec{x}) = \frac{1}{4\pi}\int_S \sigma(\vec{x_s})G(\vec{x}:\vec{x_s})\,dS
 \end{equation}
 
-where $\vec{x_s}$ denotes the source point of the body surface, $(\vec{x})$ denotes the 
+where, $\vec{x_s}$ denotes the source point of the body surface, $(\vec{x})$ denotes the 
 point where the potential is being calculated, and $\sigma(\vec{x_s})$ is the unknown 
 source strength distribution on the source point. Section (\ref{sec:green_fun})
 explains about the Green function. 
@@ -74,7 +74,7 @@ Here, the subscript $i$ in the equation represents the entities of an individual
 The equation (\ref{eq:dis_integral_eq}) can be re-written as:
 \begin{equation}
     \label{eq:alpha_int_eq}
-    -\frac{1}{2}\sigma_i + \frac{1}{2}\sum_{i=1, j=1, i\ne j}^{M}\alpha_{ij}\sigma_i = v_{n_i} \quad \text{for} i = 1, 2, \cdots M
+    -\frac{1}{2}\sigma_i + \frac{1}{2}\sum_{i=1, j=1, i\ne j}^{M}\alpha_{ij}\sigma_i = v_{n_i} \quad \text{for} \quad i = 1, 2, \cdots M
 \end{equation}
 Where, $\alpha_{ij}$ is : 
 \begin{equation}

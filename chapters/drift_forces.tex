@@ -23,7 +23,7 @@ MDLHydroD considers the effect of hull emergence angle, hence the drift force is
 less compared to WAMIT6. Due to time constraints, the code was not implemented into the HydRA
 program. Comparisons of different software alone is done.
 
-\section{Perturbation Expansions}
+\section{Perturbation expansions}
 \label{sec:perturbation_exp}
 Perturbation theory is used to obtain the approximation solution upto a certain accuracy. Solution or quantity is 
 expressed as a power series using a small parameter known as perturbation parameter. Perturbation expressions
@@ -70,11 +70,11 @@ of interest using a small parameter $\epsilon$ of the order of the wave slope, a
 
 
 
-\section{Pressure and Force derivations}
+\section{Pressure and force derivations}
 
 
 \subsection{Pressure derivation}
-The pressure using Bernoullis equation is given as:
+The pressure using Bernoulli's equation is given as:
 \begin{equation}
     \label{eq:pressure}
     p = \frac{1}{2}\rho\,U^2 - \rho\,\frac{\partial \phi_T}{\partial t} - \frac{1}{2}\rho |\nabla\phi_T|-\rho\,g\,z^2
@@ -107,7 +107,7 @@ their derivatives are calculated at mean position.
 Relative wave elevation is the distance between the wave surface and the instantaneous waterline. To calculate the
 relative wave elevation, first absolute wave elevation needs to be calculated along the waterline. The waterline is obtained 
 by extracting the edges of the panels which are at the water surface. According to the dynamic free surface boundary 
-condition the pressure at free surface is zero ( gauge pressure ) i.e. at $\zeta=0$, $p=0$. Hence, 
+condition the pressure at free surface is zero (gauge pressure) i.e. at $\zeta=0$, $p=0$. Hence, 
 \begin{equation}
     \rho g \zeta + \rho\frac{\partial \phi}{\partial t} - \rho U \frac{\partial \phi}{\partial x} =0 \quad \text{on} \quad z=\zeta 
 \end{equation}
